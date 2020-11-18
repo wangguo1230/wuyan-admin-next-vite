@@ -1,8 +1,7 @@
-import { SharedConfig } from 'vite';
 import path from 'path';
 // const { VITE_API_PREFIX, VITE_SERVICE_ORIGIN } = process.env //.env文件的环境变量
 
-const config: SharedConfig = {
+const config = {
  // open: true, //是否自动打开
   // proxy: { //设置代理
   //   [VITE_API_PREFIX]: {
@@ -10,6 +9,7 @@ const config: SharedConfig = {
   //     changeOrigin: true
   //   }
   // },
+  minify: 'esbuild', //压缩
   cssPreprocessOptions: { //css预处理
     less: {
       modifyVars: {
