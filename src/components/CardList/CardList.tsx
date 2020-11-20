@@ -1,4 +1,5 @@
 import { defineComponent, PropType, toRefs } from 'vue';
+import './index.less'
 export interface Card {
   header: string,
   content?: string,
@@ -10,21 +11,26 @@ export default defineComponent({
       type: Object as PropType<Array<Card>>,
     },
   },
-  setup(props, context) {
+  setup(props, {emit}) {
     const { data } = toRefs(props);
     console.log(data);
-
-    // if(context.slots)
+    const imgClick=()=>{
+      emit('click');
+    }
+    
     const cardItem = data.value.map((item) => (
-      <div>
+      <div class="item">
         <dl>
           <dt>
-            <img src={item.src}/>
+            <img src={item.src} onClick={imgClick} />
           </dt>
-          <dd>{item.header}</dd>
+          <dd>
+            <span>{item.header}</span>
+          </dd>
         </dl>
       </div>
     ));
-    return () => <div>{cardItem}</div>;
+
+    return () => <div class="card-wrapper">{cardItem}</div>;
   },
 });

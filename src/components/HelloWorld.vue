@@ -9,7 +9,19 @@ export default defineComponent({
   name: 'HelloWorld',
   data() {
     return {
-      data: [{ header: '111',src:'https://www.w3schools.com/images/lamp.jpg' }],
+      data: [
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+      ],
     };
   },
   props: {
