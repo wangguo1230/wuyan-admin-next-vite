@@ -1,5 +1,5 @@
 <template>
-  <card-list :data="data"></card-list>
+  <card-list :data="data" :flex="flex"></card-list>
 </template>
 
 <script lang="ts">
@@ -21,7 +21,18 @@ export default defineComponent({
         { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
         { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
         { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
+        { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
       ],
+      flex:{'flex-direction':'column'}
     };
   },
   props: {
