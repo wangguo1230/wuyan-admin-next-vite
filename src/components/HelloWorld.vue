@@ -1,12 +1,12 @@
 <template>
-  <card-list :data="data" :flex="flex"></card-list>
+  <div ><card-list :data="data" :flex="flex"></card-list></div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import CardList from '/@/components/CardList/CardList';
 export default defineComponent({
-  name: 'HelloWorld',
+  name: "HelloWorld",
   data() {
     return {
       data: [
@@ -32,7 +32,7 @@ export default defineComponent({
         { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
         { header: '这是一个描述', src: 'https://www.w3schools.com/images/lamp.jpg' },
       ],
-      flex:{'flex-direction':'column'}
+      // flex:{'flex-direction':'row'}
     };
   },
   props: {

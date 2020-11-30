@@ -1,5 +1,5 @@
 {
-  "include": ["./**/*.ts"],
+  "include": ["./**/*.ts", "src/layout/PageLayout.tsx"],
   "compilerOptions": {
     "jsx": "react",
     "target": "es2020" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */,
@@ -19,7 +19,7 @@
     "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
     "baseUrl": ".",
    "paths": {
-      "@/*": [
+      "/@/*": [
         "src/*"
       ]
     },

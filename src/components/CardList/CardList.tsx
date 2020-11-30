@@ -8,32 +8,26 @@ export interface Card {
 export default defineComponent({
   props: {
     data: {
-      type: Object as PropType<Array<Card>>,
+      type: Object as PropType<Array<Card>>
     },
     flex: {
-      type: Object,
-    },
+      type: Object
+    }
   },
   setup(props, { emit }) {
-    const { data,flex } = toRefs(props);
-    console.log(data)
+    const { data, flex } = toRefs(props)
+
     const imgClick = () => {
       emit('click')
     }
 
     const cardItem = data.value.map((item) => (
       <div class="item">
-        <dl>
-          <dt>
-            <img src={item.src} onClick={imgClick} />
-          </dt>
-          <dd>
-            <span>{item.header}</span>
-          </dd>
-        </dl>
+        <img src={item.src} onClick={imgClick} />
+        <div class="desc">{item.header}</div>
       </div>
     ))
 
-    return () => <div class="card-wrapper" style={flex.value} >{cardItem}</div>
-  },
+    return () => <div class="card-wrapper">{cardItem}</div>
+  }
 })
