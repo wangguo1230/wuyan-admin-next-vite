@@ -23,7 +23,7 @@ const config = {
   },
   optimizeDeps: {
     //加载的其他资源
-    include: ['ant-design-vue/es/locale/zh_CN', 'lodash-es', 'ant-design-vue']
+    include: ['ant-design-vue/es/locale/zh_CN', 'lodash-es', 'ant-design-vue', 'vue']
   },
   alias: {
     //src目录的配置

@@ -2,7 +2,7 @@ import path from 'path';
 // const { VITE_API_PREFIX, VITE_SERVICE_ORIGIN } = process.env //.env文件的环境变量
 
 const config = {
-  // open: true, //是否自动打开
+ // open: true, //是否自动打开
   // proxy: { //设置代理
   //   [VITE_API_PREFIX]: {
   //     target: VITE_SERVICE_ORIGIN,
@@ -10,8 +10,7 @@ const config = {
   //   }
   // },
   minify: 'esbuild', //压缩
-  cssPreprocessOptions: {
-    //css预处理
+  cssPreprocessOptions: { //css预处理
     less: {
       modifyVars: {
         'primary-color': '#FE5F23',
@@ -21,14 +20,12 @@ const config = {
       javascriptEnabled: true
     }
   },
-  optimizeDeps: {
-    //加载的其他资源
-    include: ['ant-design-vue/es/locale/zh_CN', 'lodash-es', 'ant-design-vue']
+  optimizeDeps: { //加载的其他资源
+    include: ['ant-design-vue/es/locale/zh_CN', 'lodash-es']
   },
-  alias: {
-    //src目录的配置
+  alias: { //src目录的配置
     '/@/': path.resolve(__dirname, 'src')
   }
-}
+};
 
 module.exports = config;
