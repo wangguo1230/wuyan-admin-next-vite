@@ -1,5 +1,5 @@
 import { defineComponent, ref } from 'vue'
-import './index.less'
+import 'index'
 export default defineComponent({
   props: {},
   setup() {
