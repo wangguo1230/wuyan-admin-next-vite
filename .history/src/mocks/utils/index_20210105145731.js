@@ -1,0 +1,1 @@
+const ResponseResult=function (param) {  }
