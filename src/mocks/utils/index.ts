@@ -1,18 +1,18 @@
-interface ResponseResult {
+export interface ResponseResult {
   /**
    * 消息
    */
-  message: String
+  message: string
   /**
    * 结果
    */
-  result?: Object
+  result?: any
   /**
    * 状态码
    */
-  code: Number
+  code: number
 }
-const response = function (code: Number, message: String, result: Object) {
+const response = function (code: number, message: string, result: any) {
   const responseResult: ResponseResult = {
     message,
     code,
@@ -24,17 +24,13 @@ const response = function (code: Number, message: String, result: Object) {
 /**
  * 成功
  */
-export function success(result: Object) {
-  return function () {
-    return [200, response(200, "请求成功", result)]
-  }
+export function success(result: any) {
+  return (): any => [200, response(200, "请求成功", result)]
 }
 
 /**
  * 失败
  */
-export function fail(result: Object) {
-  return function () {
-    return [500, response(200, "请求成功", result)]
-  }
+export function fail(result: any) {
+  return (): any => [500, response(200, "请求成功", result)]
 }

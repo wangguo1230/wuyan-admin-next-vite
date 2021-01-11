@@ -1,3 +1,22 @@
 {
-  "vue3snippets.enable-compile-vue-file-on-did-save-code": true
+  "vue3snippets.enable-compile-vue-file-on-did-save-code": false,
+  "vetur.format.defaultFormatter.html": "js-beautify-html",
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "singleQuote": false,
+      "semi": false
+    },
+    //beautify设置
+    "js-beautify-html": {
+      "wrap_attributes_indent_size": 2,
+      "wrap_attributes": "force-expand-multiline" // auto|force|force-aligned|force-expand-multiline
+    }
+  },
+  "files.exclude": {
+    "**/.history": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
 }

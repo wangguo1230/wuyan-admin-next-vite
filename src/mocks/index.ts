@@ -12,6 +12,6 @@ mock.onPost("/system/menus").reply(
     },
     {
       name: "介绍",
-    },
+    }
   ])
 )
