@@ -13,7 +13,7 @@ function pathResolve(dir: string) {
 export default {
   plugins: [
     // 用于正确编译.vue文件
-    vue(),
+    vue()
   ],
   // 默认为react的jsx 需要显示弄成vue的
   esbuild: {
@@ -39,13 +39,15 @@ export default {
       "ant-design-vue/es/locale/zh_CN",
       "lodash-es",
       "ant-design-vue",
-      "axios-mock-adapter",
+      "axios",
+      "axios-mock-adapter"
     ],
+    // exclude: ["vue"],
   },
   alias: [
     {
       find: "@",
       replacement: pathResolve("./src"),
-    },
+    }
   ],
 } as UserConfig

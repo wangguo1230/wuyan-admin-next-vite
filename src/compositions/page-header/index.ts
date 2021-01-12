@@ -1,15 +1,13 @@
 import { getMenus } from "@/api"
-import { ref } from "vue"
-import type { Ref } from "vue"
+import { reactive, toRefs, ToRefs } from "vue"
+import { User } from "./types"
 
-interface Menu {
-  name?: string
-}
-
-export const menuCompositions = (): Ref<Menu[]> => {
-  const menus = ref<Menu[]>([])
+export const menuCompositions = (): ToRefs<User> => {
+  let user = reactive<User>({ logo: "", menus: [], })
   getMenus().then((res: any) => {
-    menus.value = res.result
+    user = Object.assign(user, res.result)
   })
-  return menus
+  return toRefs(user)
 }
+
+

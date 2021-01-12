@@ -1,7 +1,11 @@
 .wu-header {
-  padding: 10px 10px;
+  padding: 30px 0;
   justify-content: space-between;
   align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: 1200px;
+  color: #ffffff;
 }
 
 .wu-logo {
@@ -9,21 +13,49 @@
 }
 
 .wu-menu {
-  margin-right: 100px;
-  div {
-     
-    margin-right: 50px;
-    a{
-      color: #ffffff;
+  li {
+    list-style: none;
+    a {
+      position: relative;
+      padding: 0.5rem 1px;
+      margin-left: 30px;
+    }
+  }
+
+  .nav-link {
+    opacity: 0.8;
+    &:not(.active)::after {
+      content: ""; /*CSS伪类用法*/
+      position: absolute; /*定位背景横线的位置*/
+      left: 0;
+      bottom: 0;
+      background: #ffffff; /*宽和高做出来的背景横线*/
+      height: 2px;
+    }
+    &:not(.active):hover:after {
+      animation: menuUnderline 1.5s;
+    }
+  }
+
+  .active {
+    opacity: 1;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
     }
   }
 }
 
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s ease;
-}
-
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
+@keyframes menuUnderline {
+  from {
+    width: 10%;
+  }
+  to {
+    width: 100%;
+  }
 }

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <card-list :data="data" :flex="flex"/>
+    <card-list
+      :data="data"
+      :flex="flex"
+    />
   </div>
 </template>
 
@@ -18,27 +21,27 @@ export default defineComponent({
   data() {
     return {
       data: [
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
-        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg" },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", },
+        { header: "这是一个描述", src: "https://www.w3schools.com/images/lamp.jpg", }
       ],
       // flex:{'flex-direction':'row'}
     }
