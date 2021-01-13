@@ -39,5 +39,15 @@ module.exports = {
     "vue/return-in-computed-property": ["error", {
       "treatUndefinedAsUnspecified": true,
     }],
+    // 标签自闭和
+    "vue/html-self-closing": ["error", {
+      "html": {
+        "void": "always",
+        "normal": "any",
+        "component": "always",
+      },
+      "svg": "always",
+      "math": "always",
+    }],
   },
 }

@@ -25,10 +25,9 @@ export default defineComponent({
         ))}
       </ul>
     )
-    // 宽度
-    const width = screen.availWidth * 0.8 + "px"
+    
     return () => (
-      <div class="wu-flex wu-header" style={{ width: width }}>
+      <div class="wu-flex wu-header">
         <Logo></Logo>
         <Menu></Menu>
       </div>
