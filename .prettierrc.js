@@ -4,5 +4,7 @@ module.exports = {
   singleQuote: false,
   printWidth: 100,
   tabWidth: 2,
-  endOfLine: "auto"
+  endOfLine: "auto",
+  // 箭头函数括号
+  arrowParens: 'always',
 };

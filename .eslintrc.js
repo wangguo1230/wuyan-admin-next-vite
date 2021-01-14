@@ -13,19 +13,22 @@ module.exports = {
     },
   },
   extends: [
-    'plugin:vue/vue3-recommended',
-    'eslint:recommended',
+    'plugin:vue/vue3-recommended'
+    // 'eslint:recommended'
     // ts
-    'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'prettier/@typescript-eslint'
+    // 'plugin:@typescript-eslint/recommended',
+    // 'prettier',
+    // 'prettier/@typescript-eslint'
   ],
-  plugins: ['vue', '@typescript-eslint'],
+  plugins: ['vue',"@typescript-eslint"],
   rules: {
     'no-console': 'off',
     // 'no-debugger': import.meta.env === 'production' ? 'error' : 'off',
     //语句强制分号结尾
     "semi": ["error", "never"],
+    // 要求箭头函数的参数使用圆括号 
+    "arrow-parens":["error","always"],
+    "@typescript-eslint/no-extra-semi": ["error"],
     "comma-dangle": "off",
     // 尾随逗号,只数组
     "@typescript-eslint/comma-dangle": ["error", {

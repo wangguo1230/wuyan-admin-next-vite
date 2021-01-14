@@ -1,10 +1,21 @@
 import { menuCompositions } from "@/compositions/page-header"
-import { defineComponent, ref } from "vue"
-import "./index.less"
+import { defineComponent, ref, toRefs } from "vue"
+import "./index.scss"
 export default defineComponent({
-  setup() {
+  props: {
+    activeIndex: {
+      type: Number,
+      default: 1,
+    }
+  },
+  emits: {
+    menuClick:function (index:number) {
+      console.log("触发了事件:",index);
+    },
+  },
+  setup(props, { emit }) {
     // 获取用户状态
-    const {logo,menus} = menuCompositions()
+    const { logo, menus } = menuCompositions()
     // logo
     const Logo = () => (
       <div class="wu-logo">
@@ -12,9 +23,11 @@ export default defineComponent({
       </div>
     )
     // 菜单活动的index
-    let activeIndex = ref(0)
+    let { activeIndex } = toRefs(props)
     // 菜单点击事件
-    const menuClick = (index: number) => () => (activeIndex.value = index)
+    const menuClick = (index: number) => () => {
+      emit("menuClick", index)
+    }
     // 菜单
     const Menu = () => (
       <ul class="wu-flex wu-menu">
@@ -25,7 +38,7 @@ export default defineComponent({
         ))}
       </ul>
     )
-    
+
     return () => (
       <div class="wu-flex wu-header">
         <Logo></Logo>
