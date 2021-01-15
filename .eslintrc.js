@@ -13,12 +13,13 @@ module.exports = {
     },
   },
   extends: [
-    'plugin:vue/vue3-recommended'
+    'plugin:vue/vue3-recommended',
     // 'eslint:recommended'
     // ts
     // 'plugin:@typescript-eslint/recommended',
-    // 'prettier',
-    // 'prettier/@typescript-eslint'
+    'prettier',
+    'prettier/@typescript-eslint',
+    "prettier/vue"
   ],
   plugins: ['vue',"@typescript-eslint"],
   rules: {
@@ -38,6 +39,11 @@ module.exports = {
       "exports": "never",
       "functions": "never",
     }],
+    // 优先使用 interface 而不是 type
+    '@typescript-eslint/consistent-type-definitions': [
+      "error",
+      "interface"
+    ],
     // 计算属性中必须return一个值
     "vue/return-in-computed-property": ["error", {
       "treatUndefinedAsUnspecified": true,

@@ -19,6 +19,11 @@ export default defineConfig({
     target: "es2015",
     base: "/",
   },
+  // Client Types
+  // 资产导入（例如，导入.svg文件） 对于Vite的注入类型ENV变量上import.meta.env 对于类型HMR API上import.meta.hot
+  compilerOptions: {
+    types: ["vite/client"],
+  },
   // assetsInclude:pathResolve("src/assets"),
   // 默认为react的jsx 需要显示弄成vue的
   esbuild: {

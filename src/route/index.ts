@@ -5,8 +5,8 @@ import type { RouteRecordRaw } from "vue-router"
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    component: () => import("@/layout/PageLayout"),
-  },
+    component: () => import("@/views/Login/login.vue"),
+  }
 ]
 const route = createRouter({
   history: createWebHistory(),
