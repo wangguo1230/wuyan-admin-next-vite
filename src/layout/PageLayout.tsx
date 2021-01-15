@@ -1,7 +1,12 @@
-import { defineComponent, ref } from "vue"
+import { defineComponent, onMounted, ref } from "vue"
 import PageHeader from "@/components/PageHeader/PageHeader"
 import PageBody from "@/components/PageBody/PageBody"
 import "./index.scss"
+
+function getHeight(item: { index: number; height: number }): number {
+  return document.querySelector(`[data-index='${item.index}']`)?.scrollHeight ?? 0
+}
+
 export default defineComponent({
   props: {},
   setup() {
@@ -9,18 +14,38 @@ export default defineComponent({
     // 宽度
     const width = screen.availWidth * 0.8 + "px"
     const height = screen.availHeight + "px"
+    const dataIndexes = [
+      { index: 0, height: 0 },
+      { index: 1, height: 0 },
+      { index: 2, height: 0 },
+    ]
     const menuClick = (index: number) => {
       activeIndex.value = index
-      console.log(activeIndex)
+      console.log(dataIndexes[1].height)
+      window.scrollTo(0, dataIndexes[1].height)
     }
-    const dataIndexes = [1, 2]
+
     window.addEventListener("scroll", () => {
       const scrollLocation =
         document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
       dataIndexes.forEach((item) => {
-        
+        if (scrollLocation > item.height) {
+          activeIndex.value = item.index
+        }
       })
-      document.querySelector(".wu-body")!.clientHeight
+    })
+
+    onMounted(() => {
+      dataIndexes.map((item, index) => {
+        let prevHeight = 0
+        const prevObj = dataIndexes[index - 1]
+        if (prevObj) {
+          prevHeight = getHeight(prevObj)
+        }
+        item.height = getHeight(item) + prevHeight
+        return item
+      })
+      console.log("mounted", dataIndexes)
     })
 
     return () => (
