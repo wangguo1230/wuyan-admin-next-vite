@@ -1,8 +1,10 @@
+import { User } from "./../../mocks/index"
 import type { Module } from "vuex"
 import { getMenus } from "@/api"
 export default {
   namespaced: true,
   state: {
+    logo: "",
     menus: [],
   },
   mutations: {
@@ -11,8 +13,8 @@ export default {
     },
   },
   actions: {
-    SET_MENUS({ commit }) {
-      getMenus().then((res) => commit("SET_MENUS", res))
+    SET_MENUS({ commit, }) {
+      getMenus<User>().then((res) => commit("SET_MENUS", res))
     },
   },
-} as Module<any, any>
+} as Module<User, any>

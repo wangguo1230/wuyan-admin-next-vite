@@ -15,10 +15,10 @@
       <div class="login-logo">
         <img src="logo.svg" />
         <span class="title">Wu-yan Admin</span>
-        <p class="describe">Ant Design 是西湖区最具影响力的 Web 设计规范</p>
+        <p class="describe">Ant Design 是西湖区最具影响力的 Web 设计规范 {{ data.a }}</p>
       </div>
       <div class="main">
-        <a-spin :spinning="loadingRef">
+        <a-spin :spinning="loading">
           <a-form layout="horizontal" :wrapper-col="{ span: 24 }" @submit="onSumbit">
             <a-tabs :tab-bar-style="{ textAlign: 'center', borderBottom: 'unset' }">
               <a-tab-pane key="1" tab="账号密码登录">
@@ -66,7 +66,10 @@
 <script lang="ts">
   import { defineComponent, ref } from "vue"
   import { UserOutlined, LockOutlined, GlobalOutlined } from "@ant-design/icons-vue"
-  import { Dropdown as ADropdown, Menu as AMenu, Tabs as ATabs } from "ant-design-vue"
+  import { Dropdown as ADropdown, Menu as AMenu, message, Tabs as ATabs } from "ant-design-vue"
+  import { Service } from "@/compsitions/types"
+  import { ResponseResult } from "@/mocks/utils"
+  import { useRequest } from "@/compsitions/useRequest"
   const AMenuItem = AMenu.Item
   const ATabPane = ATabs.TabPane
   export default defineComponent({
@@ -82,15 +85,19 @@
     },
     setup(props) {
       let visibleRef = ref(false)
-      let loadingRef = ref(false)
-      return { visibleRef, loadingRef, }
+      const service: Service<ResponseResult<Object>> = function () {
+        return new Promise((resolve) => {
+          message.info("l阿拉啦")
+          setTimeout(() => resolve({ result: { a: "11", }, message: "", code: 200, }), 2000)
+        })
+      }
+      let { loading, run, data, } = useRequest(service, { a: "", }, { manual: true, })
+
+      return { visibleRef, loading, data, run, }
     },
     methods: {
       onSumbit() {
-        this.loadingRef = true
-        setTimeout(() => {
-          (this.loadingRef = false), this.$message.success("啦啦啦")
-        }, 2000)
+        this.run()
       },
     },
   })

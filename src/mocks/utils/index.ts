@@ -1,4 +1,4 @@
-export interface ResponseResult {
+export interface ResponseResult<T> {
   /**
    * 消息
    */
@@ -6,14 +6,14 @@ export interface ResponseResult {
   /**
    * 结果
    */
-  result?: any
+  result: T
   /**
    * 状态码
    */
   code: number
 }
-const response = function (code: number, message: string, result: any) {
-  const responseResult: ResponseResult = {
+const response = function <T>(code: number, message: string, result: T): ResponseResult<T> {
+  const responseResult: ResponseResult<T> = {
     message,
     code,
     result,
@@ -24,13 +24,13 @@ const response = function (code: number, message: string, result: any) {
 /**
  * 成功
  */
-export function success(result: any) {
-  return (): any => [200, response(200, "请求成功", result)]
+export function success<T>(result: T) {
+  return (): any => [200, response<T>(200, "请求成功", result)]
 }
 
 /**
  * 失败
  */
-export function fail(result: any) {
-  return (): any => [500, response(200, "请求成功", result)]
+export function fail<T>(result: T) {
+  return (): any => [500, response<T>(200, "请求成功", result)]
 }
