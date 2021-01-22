@@ -1,4 +1,4 @@
-import { MessageApi } from 'ant-design-vue/lib/message'
+import { MessageApi } from "ant-design-vue/lib/message"
 // declare module '*.vue' {
 //   import { defineComponent } from 'vue'
 //   const component: ReturnType<typeof defineComponent>
@@ -10,3 +10,4 @@ declare module "@vue/runtime-core" {
     $message: MessageApi
   }
 }
+

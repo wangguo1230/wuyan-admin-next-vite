@@ -14,7 +14,7 @@ export default {
   },
   actions: {
     SET_MENUS({ commit, }) {
-      getMenus<User>().then((res) => commit("SET_MENUS", res))
+      getMenus<User>().then((res) => commit("SET_MENUS", res.data))
     },
   },
 } as Module<User, any>

@@ -22,6 +22,4 @@ mock.onPost("/system/menus").reply(
   })
 )
 
-mock.onPost("/login",{
-  account:'账号',
-}).reply(success({}))
+mock.onPost("/login").reply(success("登录成功"))

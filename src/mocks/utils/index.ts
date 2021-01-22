@@ -1,4 +1,4 @@
-export interface ResponseResult<T> {
+export interface ResponseResult<T=any> {
   /**
    * 消息
    */

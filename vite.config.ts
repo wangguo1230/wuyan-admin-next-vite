@@ -28,7 +28,7 @@ export default defineConfig({
   // 默认为react的jsx 需要显示弄成vue的
   esbuild: {
     // 解决头部引入h的问题
-    jsxInject: `import { h } from "vue"`,
+    jsxInject: "import { h } from \"vue\"",
     jsxFactory: "h",
     jsxFragment: "Fragment",
   },
@@ -40,7 +40,7 @@ export default defineConfig({
       "ant-design-vue",
       "@ant-design/icons-vue",
       "axios",
-      "axios-mock-adapter"
+      "axios-mock-adapter","mockjs"
     ],
   },
   alias: [

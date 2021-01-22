@@ -15,7 +15,7 @@
       <div class="login-logo">
         <img src="logo.svg" />
         <span class="title">Wu-yan Admin</span>
-        <p class="describe">Ant Design 是西湖区最具影响力的 Web 设计规范 {{ data.a }}</p>
+        <p class="describe">Ant Design 是西湖区最具影响力的 Web 设计规范</p>
       </div>
       <div class="main">
         <a-spin :spinning="loading">
@@ -23,14 +23,14 @@
             <a-tabs :tab-bar-style="{ textAlign: 'center', borderBottom: 'unset' }">
               <a-tab-pane key="1" tab="账号密码登录">
                 <a-form-item>
-                  <a-input>
+                  <a-input v-model="loginForm.account">
                     <template #addonBefore>
                       <user-outlined />
                     </template>
                   </a-input>
                 </a-form-item>
                 <a-form-item>
-                  <a-input-password>
+                  <a-input-password v-model="loginForm.password">
                     <template #addonBefore>
                       <lock-outlined />
                     </template>
@@ -64,14 +64,14 @@
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent, ref } from "vue"
+  import { defineComponent, reactive, ref, toRaw } from "vue"
   import { UserOutlined, LockOutlined, GlobalOutlined } from "@ant-design/icons-vue"
   import { Dropdown as ADropdown, Menu as AMenu, message, Tabs as ATabs } from "ant-design-vue"
-  import { Service } from "@/compsitions/types"
-  import { ResponseResult } from "@/mocks/utils"
-  import { useRequest } from "@/compsitions/useRequest"
+  import { useRequest } from "@/core"
+  import { login } from "@/api"
   const AMenuItem = AMenu.Item
   const ATabPane = ATabs.TabPane
+
   export default defineComponent({
     components: {
       UserOutlined,
@@ -85,19 +85,18 @@
     },
     setup(props) {
       let visibleRef = ref(false)
-      const service: Service<ResponseResult<Object>> = function () {
-        return new Promise((resolve) => {
-          message.info("l阿拉啦")
-          setTimeout(() => resolve({ result: { a: "11", }, message: "", code: 200, }), 2000)
-        })
-      }
-      let { loading, run, data, } = useRequest(service, { a: "", }, { manual: true, })
-
-      return { visibleRef, loading, data, run, }
+      let loginForm = reactive({
+        account: "",
+        password: "",
+      })
+      let { loading, run, data, } = useRequest(login, "", { immediate: false, })
+      return { visibleRef, loading, data, run, loginForm, }
     },
     methods: {
       onSumbit() {
-        this.run()
+        this.run(toRaw(this.loginForm)).then((res) => {
+          message.info(res.result)
+        })
       },
     },
   })
