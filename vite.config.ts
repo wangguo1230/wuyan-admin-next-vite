@@ -38,6 +38,7 @@ export default defineConfig({
       "ant-design-vue/es/locale/zh_CN",
       "lodash-es",
       "ant-design-vue",
+      "@ant-design/icons-vue",
       "axios",
       "axios-mock-adapter"
     ],

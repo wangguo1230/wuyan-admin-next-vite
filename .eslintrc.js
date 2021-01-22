@@ -13,22 +13,24 @@ module.exports = {
     },
   },
   extends: [
-    'plugin:vue/vue3-recommended',
+    "plugin:vue/vue3-recommended",
     // 'eslint:recommended'
     // ts
     // 'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'prettier/@typescript-eslint',
+    "prettier",
+    "prettier/@typescript-eslint",
     "prettier/vue"
   ],
-  plugins: ['vue',"@typescript-eslint"],
+  plugins: ["vue", "@typescript-eslint"],
   rules: {
-    'no-console': 'off',
+    "no-console": "off",
     // 'no-debugger': import.meta.env === 'production' ? 'error' : 'off',
     //语句强制分号结尾
     "semi": ["error", "never"],
+    "quotes": "off",
+    "@typescript-eslint/quotes": ["error","double"],
     // 要求箭头函数的参数使用圆括号 
-    "arrow-parens":["error","always"],
+    "arrow-parens": ["error", "always"],
     "@typescript-eslint/no-extra-semi": ["error"],
     "comma-dangle": "off",
     // 尾随逗号,只数组
@@ -40,7 +42,7 @@ module.exports = {
       "functions": "never",
     }],
     // 优先使用 interface 而不是 type
-    '@typescript-eslint/consistent-type-definitions': [
+    "@typescript-eslint/consistent-type-definitions": [
       "error",
       "interface"
     ],
