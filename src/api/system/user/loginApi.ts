@@ -1,12 +1,10 @@
 import axios from "@/utils/http"
+import { Login } from "./types"
 
 export const api = {
   login: "/login",
 }
-interface Login {
-  account: string
-  password: string
-}
-export function login(params: Login) {
+
+export function loginApi(params: Login) {
   return axios.post<string>(api.login, params)
 }

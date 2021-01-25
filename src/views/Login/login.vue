@@ -22,40 +22,52 @@
           <a-form layout="horizontal" :wrapper-col="{ span: 24 }" @submit="onSumbit">
             <a-tabs :tab-bar-style="{ textAlign: 'center', borderBottom: 'unset' }">
               <a-tab-pane key="1" tab="账号密码登录">
-                <a-form-item>
-                  <a-input v-model="loginForm.account">
-                    <template #addonBefore>
-                      <user-outlined />
+                <a-form-item v-bind="validateInfos.account">
+                  <a-input v-model:value="login.account" :size="inputSize" placeholder="账号">
+                    <template #prefix>
+                      <user-outlined :style="prefixStyle" />
                     </template>
                   </a-input>
                 </a-form-item>
-                <a-form-item>
-                  <a-input-password v-model="loginForm.password">
-                    <template #addonBefore>
-                      <lock-outlined />
+                <a-form-item v-bind="validateInfos.password">
+                  <a-input-password
+                    v-model:value="login.password"
+                    :size="inputSize"
+                    placeholder="密码"
+                  >
+                    <template #prefix>
+                      <lock-outlined :style="prefixStyle" />
                     </template>
                   </a-input-password>
                 </a-form-item>
               </a-tab-pane>
               <a-tab-pane key="2" tab="手机验证码登录">
                 <a-form-item>
-                  <a-input>
-                    <template #addonBefore>
-                      <user-outlined />
+                  <a-input :size="inputSize" placeholder="手机号">
+                    <template #prefix>
+                      <mobile-outlined :style="prefixStyle" />
                     </template>
                   </a-input>
                 </a-form-item>
                 <a-form-item>
-                  <a-input-password>
-                    <template #addonBefore>
-                      <lock-outlined />
-                    </template>
-                  </a-input-password>
+                  <a-row>
+                    <a-col :span="14">
+                      <a-input :size="inputSize" placeholder="验证码">
+                        <template #prefix>
+                          <mail-outlined :style="prefixStyle" />
+                        </template>
+                      </a-input>
+                    </a-col>
+                    <a-col :span="2" />
+                    <a-col :span="8">
+                      <a-button block :size="inputSize">获取验证码</a-button>
+                    </a-col>
+                  </a-row>
                 </a-form-item>
               </a-tab-pane>
             </a-tabs>
             <a-form-item>
-              <a-button type="primary" @click="onSumbit">sumbit</a-button>
+              <a-button block type="primary" @click="onSubmit">登录</a-button>
             </a-form-item>
           </a-form>
         </a-spin>
@@ -64,11 +76,16 @@
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent, reactive, ref, toRaw } from "vue"
-  import { UserOutlined, LockOutlined, GlobalOutlined } from "@ant-design/icons-vue"
-  import { Dropdown as ADropdown, Menu as AMenu, message, Tabs as ATabs } from "ant-design-vue"
-  import { useRequest } from "@/core"
-  import { login } from "@/api"
+  import { defineComponent, reactive, ref } from "vue"
+  import {
+    UserOutlined,
+    LockOutlined,
+    GlobalOutlined,
+    MobileOutlined,
+    MailOutlined
+  } from "@ant-design/icons-vue"
+  import { Dropdown as ADropdown, Menu as AMenu, Tabs as ATabs } from "ant-design-vue"
+  import { loginReactive } from "@/modules/user/login"
   const AMenuItem = AMenu.Item
   const ATabPane = ATabs.TabPane
 
@@ -82,22 +99,26 @@
       AMenuItem,
       ATabs,
       ATabPane,
+      MobileOutlined,
+      MailOutlined,
     },
     setup(props) {
-      let visibleRef = ref(false)
-      let loginForm = reactive({
-        account: "",
-        password: "",
+      const { loading, run, data, visibleRef, onSubmit, login, validateInfos, } = loginReactive()
+      const inputSize = ref("large")
+      const prefixStyle = reactive({
+        color: "rgba(0, 0, 0, 0.25)",
       })
-      let { loading, run, data, } = useRequest(login, "", { immediate: false, })
-      return { visibleRef, loading, data, run, loginForm, }
-    },
-    methods: {
-      onSumbit() {
-        this.run(toRaw(this.loginForm)).then((res) => {
-          message.info(res.result)
-        })
-      },
+      return {
+        visibleRef,
+        loading,
+        data,
+        run,
+        login,
+        onSubmit,
+        validateInfos,
+        inputSize,
+        prefixStyle,
+      }
     },
   })
 </script>

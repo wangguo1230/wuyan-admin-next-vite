@@ -24,14 +24,13 @@
   resolved "https://registry.npm.taobao.org/@ant-design/icons-svg/download/@ant-design/icons-svg-4.1.0.tgz#480b025f4b20ef7fe8f47d4a4846e4fee84ea06c"
   integrity sha1-SAsCX0sg73/o9H1KSEbk/uhOoGw=
 
-"@ant-design/icons-vue@^5.1.9":
-  version "5.1.9"
-  resolved "https://registry.npm.taobao.org/@ant-design/icons-vue/download/@ant-design/icons-vue-5.1.9.tgz#8d741a3290be61af7c71618c308cc1a946c4e434"
-  integrity sha1-jXQaMpC+Ya98cWGMMIzBqUbE5DQ=
+"@ant-design/icons-vue@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.npm.taobao.org/@ant-design/icons-vue/download/@ant-design/icons-vue-6.0.0.tgz#e00ed23d5369323ee599ab4f4eb8aaa4f85f7877"
+  integrity sha1-4A7SPVNpMj7lmatPTriqpPhfeHc=
   dependencies:
     "@ant-design/colors" "^5.0.0"
     "@ant-design/icons-svg" "^4.0.0"
-    "@babel/runtime" "^7.10.4"
     "@types/lodash" "^4.14.165"
     lodash "^4.17.15"
 
@@ -61,7 +60,7 @@
   resolved "https://registry.npm.taobao.org/@babel/parser/download/@babel/parser-7.12.11.tgz?cache=0&sync_timestamp=1608076876472&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fparser%2Fdownload%2F%40babel%2Fparser-7.12.11.tgz#9ce3595bcd74bc5c466905e86c535b8b25011e79"
   integrity sha1-nONZW810vFxGaQXobFNbiyUBHnk=
 
-"@babel/runtime@^7.10.4", "@babel/runtime@^7.10.5":
+"@babel/runtime@^7.10.5":
   version "7.12.5"
   resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.12.5.tgz?cache=0&sync_timestamp=1604441085826&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha1-QQ5+SHRB4bNgwpvnFdhw2bmFiC4=
@@ -119,12 +118,12 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
-"@simonwep/pickr@~1.7.0":
-  version "1.7.4"
-  resolved "https://registry.npm.taobao.org/@simonwep/pickr/download/@simonwep/pickr-1.7.4.tgz#b14fcd945890388b870cd6db4d6c78d531f25141"
-  integrity sha1-sU/NlFiQOIuHDNbbTWx41THyUUE=
+"@simonwep/pickr@~1.8.0":
+  version "1.8.0"
+  resolved "https://registry.npm.taobao.org/@simonwep/pickr/download/@simonwep/pickr-1.8.0.tgz#adbff9a4f7f0e59dec9946508c5e481b7abae0f8"
+  integrity sha1-rb/5pPfw5Z3smUZQjF5IG3q64Pg=
   dependencies:
-    core-js "^3.6.5"
+    core-js "^3.8.0"
     nanopop "^2.1.0"
 
 "@types/json-schema@^7.0.3":
@@ -213,10 +212,10 @@
     "@typescript-eslint/types" "4.14.0"
     eslint-visitor-keys "^2.0.0"
 
-"@vitejs/plugin-vue@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.npm.taobao.org/@vitejs/plugin-vue/download/@vitejs/plugin-vue-1.1.0.tgz#8ae0b11388897b07259c9e5198c0e3fb5e4b37d9"
-  integrity sha1-iuCxE4iJewclnJ5RmMDj+15LN9k=
+"@vitejs/plugin-vue@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.npm.taobao.org/@vitejs/plugin-vue/download/@vitejs/plugin-vue-1.1.2.tgz#64d1f0e0739675f5717015ffb4d861c53af8fe60"
+  integrity sha1-ZNHw4HOWdfVxcBX/tNhhxTr4/mA=
 
 "@vue/compiler-core@3.0.5":
   version "3.0.5"
@@ -350,15 +349,15 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
-ant-design-vue@^2.0.0-rc.8:
-  version "2.0.0-rc.8"
-  resolved "https://registry.npm.taobao.org/ant-design-vue/download/ant-design-vue-2.0.0-rc.8.tgz?cache=0&sync_timestamp=1610025544734&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fant-design-vue%2Fdownload%2Fant-design-vue-2.0.0-rc.8.tgz#0f219aedb27f1797228aab79fbbd8328a7389a9f"
-  integrity sha1-DyGa7bJ/F5ciiqt5+72DKKc4mp8=
+ant-design-vue@^2.0.0-rc.9:
+  version "2.0.0-rc.9"
+  resolved "https://registry.npm.taobao.org/ant-design-vue/download/ant-design-vue-2.0.0-rc.9.tgz#9f4d89b02bf2c6f3295633048001b2e13c229f1e"
+  integrity sha1-n02JsCvyxvMpVjMEgAGy4Twinx4=
   dependencies:
     "@ant-design-vue/use" "^0.0.1-0"
-    "@ant-design/icons-vue" "^5.1.9"
+    "@ant-design/icons-vue" "^6.0.0"
     "@babel/runtime" "^7.10.5"
-    "@simonwep/pickr" "~1.7.0"
+    "@simonwep/pickr" "~1.8.0"
     array-tree-filter "^2.1.0"
     async-validator "^3.3.0"
     dom-align "^1.10.4"
@@ -548,10 +547,10 @@ copy-anything@^2.0.1:
   dependencies:
     is-what "^3.7.1"
 
-core-js@^3.6.5:
-  version "3.8.2"
-  resolved "https://registry.npm.taobao.org/core-js/download/core-js-3.8.2.tgz?cache=0&sync_timestamp=1609682080903&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-3.8.2.tgz#0a1fd6709246da9ca8eff5bb0cbd15fba9ac7044"
-  integrity sha1-Ch/WcJJG2pyo7/W7DL0V+6mscEQ=
+core-js@^3.8.0:
+  version "3.8.3"
+  resolved "https://registry.npm.taobao.org/core-js/download/core-js-3.8.3.tgz?cache=0&sync_timestamp=1611040756909&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-3.8.3.tgz#c21906e1f14f3689f93abcc6e26883550dd92dd0"
+  integrity sha1-whkG4fFPNon5OrzG4miDVQ3ZLdA=
 
 cross-spawn@^7.0.2:
   version "7.0.3"
@@ -639,10 +638,10 @@ errno@^0.1.1:
   dependencies:
     prr "~1.0.1"
 
-esbuild@^0.8.26:
-  version "0.8.29"
-  resolved "https://registry.npm.taobao.org/esbuild/download/esbuild-0.8.29.tgz?cache=0&sync_timestamp=1609590330915&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fesbuild%2Fdownload%2Fesbuild-0.8.29.tgz#cc20fb752e0905a3546d68ae1be58f9b97044c39"
-  integrity sha1-zCD7dS4JBaNUbWiuG+WPm5cETDk=
+esbuild@^0.8.34:
+  version "0.8.34"
+  resolved "https://registry.npm.taobao.org/esbuild/download/esbuild-0.8.34.tgz#16b4ac58f74c821d2c5a8c2f0585ca96a38ab4e6"
+  integrity sha1-FrSsWPdMgh0sWowvBYXKlqOKtOY=
 
 escape-string-regexp@^1.0.5:
   version "1.0.5"
@@ -654,15 +653,15 @@ eslint-config-prettier@^7.2.0:
   resolved "https://registry.npm.taobao.org/eslint-config-prettier/download/eslint-config-prettier-7.2.0.tgz#f4a4bd2832e810e8cc7c1411ec85b3e85c0c53f9"
   integrity sha1-9KS9KDLoEOjMfBQR7IWz6FwMU/k=
 
-eslint-plugin-vue@^7.4.1:
-  version "7.4.1"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-vue/download/eslint-plugin-vue-7.4.1.tgz?cache=0&sync_timestamp=1609808625036&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-vue%2Fdownload%2Feslint-plugin-vue-7.4.1.tgz#2526ef0c010c218824a89423dbe6ddbe76f04fd6"
-  integrity sha1-JSbvDAEMIYgkqJQj2+bdvnbwT9Y=
+eslint-plugin-vue@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.npm.taobao.org/eslint-plugin-vue/download/eslint-plugin-vue-7.5.0.tgz?cache=0&sync_timestamp=1611277739249&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-vue%2Fdownload%2Feslint-plugin-vue-7.5.0.tgz#cc6d983eb22781fa2440a7573cf39af439bb5725"
+  integrity sha1-zG2YPrIngfokQKdXPPOa9Dm7VyU=
   dependencies:
     eslint-utils "^2.1.0"
     natural-compare "^1.4.0"
     semver "^7.3.2"
-    vue-eslint-parser "^7.3.0"
+    vue-eslint-parser "^7.4.1"
 
 eslint-scope@^5.0.0, eslint-scope@^5.1.1:
   version "5.1.1"
@@ -1717,22 +1716,22 @@ v8-compile-cache@^2.0.3:
   resolved "https://registry.npm.taobao.org/v8-compile-cache/download/v8-compile-cache-2.2.0.tgz?cache=0&sync_timestamp=1603909625582&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fv8-compile-cache%2Fdownload%2Fv8-compile-cache-2.2.0.tgz#9471efa3ef9128d2f7c6a7ca39c4dd6b5055b132"
   integrity sha1-lHHvo++RKNL3xqfKOcTda1BVsTI=
 
-vite@^2.0.0-beta.36:
-  version "2.0.0-beta.36"
-  resolved "https://registry.npm.taobao.org/vite/download/vite-2.0.0-beta.36.tgz#ccecac854ded0b7c0fe14c52c0460e1c23a9c70b"
-  integrity sha1-zOyshU3tC3wP4UxSwEYOHCOpxws=
+vite@^2.0.0-beta.48:
+  version "2.0.0-beta.48"
+  resolved "https://registry.npm.taobao.org/vite/download/vite-2.0.0-beta.48.tgz#76938af039fedd62177c3305b6195f8d25eb591a"
+  integrity sha1-dpOK8Dn+3WIXfDMFthlfjSXrWRo=
   dependencies:
-    esbuild "^0.8.26"
+    esbuild "^0.8.34"
     postcss "^8.2.1"
     resolve "^1.19.0"
     rollup "^2.35.1"
   optionalDependencies:
     fsevents "~2.1.2"
 
-vue-eslint-parser@^7.3.0:
-  version "7.3.0"
-  resolved "https://registry.npm.taobao.org/vue-eslint-parser/download/vue-eslint-parser-7.3.0.tgz?cache=0&sync_timestamp=1608030990315&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-eslint-parser%2Fdownload%2Fvue-eslint-parser-7.3.0.tgz#894085839d99d81296fa081d19643733f23d7559"
-  integrity sha1-iUCFg52Z2BKW+ggdGWQ3M/I9dVk=
+vue-eslint-parser@^7.4.1:
+  version "7.4.1"
+  resolved "https://registry.npm.taobao.org/vue-eslint-parser/download/vue-eslint-parser-7.4.1.tgz?cache=0&sync_timestamp=1611231583255&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-eslint-parser%2Fdownload%2Fvue-eslint-parser-7.4.1.tgz#e4adcf7876a7379758d9056a72235af18a587f92"
+  integrity sha1-5K3PeHanN5dY2QVqciNa8YpYf5I=
   dependencies:
     debug "^4.1.1"
     eslint-scope "^5.0.0"

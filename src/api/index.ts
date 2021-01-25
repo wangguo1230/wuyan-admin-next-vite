@@ -1,8 +1,5 @@
 import axios from "@/utils/http"
-import { login } from "./loginApi"
+import { loginApi } from "./system/user/loginApi"
 
-export function getMenus<T>() {
-  return axios.post<T>("/system/menus")
-}
 
-export { login }
+export { loginApi }

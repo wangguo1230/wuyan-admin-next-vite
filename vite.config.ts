@@ -17,7 +17,7 @@ export default defineConfig({
   ],
   build: {
     target: "es2015",
-    base: "/",
+    // base: "/",
   },
   // Client Types
   // 资产导入（例如，导入.svg文件） 对于Vite的注入类型ENV变量上import.meta.env 对于类型HMR API上import.meta.hot
@@ -33,14 +33,23 @@ export default defineConfig({
     jsxFragment: "Fragment",
   },
   optimizeDeps: {
-    //加载的其他资源
+    //只能深入导入的资源
     include: [
-      "ant-design-vue/es/locale/zh_CN",
-      "lodash-es",
-      "ant-design-vue",
-      "@ant-design/icons-vue",
-      "axios",
-      "axios-mock-adapter","mockjs"
+      // "ant-design-vue/es/locale/zh_CN",
+      // "lodash-es",
+      // "ant-design-vue",
+      // "@ant-design/icons-vue",
+      // "axios",
+      "axios-mock-adapter","mockjs",
+      // 兼容ant-design useForm
+      "lodash-es/cloneDeep",
+      "lodash-es/intersection",
+      "lodash-es/isEqual",
+      "lodash-es/debounce",
+      "lodash-es/omit",
+      "ant-design-vue/es/form/utils/validateUtil",
+      "ant-design-vue/es/form/utils/messages",
+      "ant-design-vue/es/form/utils/asyncUtil"
     ],
   },
   alias: [

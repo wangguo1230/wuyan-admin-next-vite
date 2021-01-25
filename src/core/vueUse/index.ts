@@ -1,1 +1,1 @@
-export { useComponents } from "../use_components"
+export { useComponents } from "./use_components"
