@@ -1,4 +1,4 @@
-import axios from "@/utils/http"
+import axios from "@/utils/httpUtil"
 import { Login } from "./types"
 
 export const api = {

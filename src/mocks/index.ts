@@ -1,4 +1,4 @@
-import mock from "@/utils/mock"
+import mock from "@/utils/mockUtil"
 import { success } from "./utils"
 export interface User {
   logo: string
