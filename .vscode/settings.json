@@ -1,4 +1,5 @@
 {
+  "vue3snippets.enable-compile-vue-file-on-did-save-code": false,
   "vetur.format.defaultFormatter.html": "js-beautify-html",
   "vetur.format.defaultFormatter.js": "vscode-typescript",
   "vetur.format.defaultFormatterOptions": {
@@ -18,5 +19,10 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "vue3snippets.enable-compile-vue-file-on-did-save-code": false,
+  // 对哪些语言进行校验
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue"],
+  "eslint.options": {
+    //指定vscode的eslint所处理的文件的后缀
+    "extensions": [".js", ".vue", ".ts", ".tsx", "jsx"]
+  }
 }

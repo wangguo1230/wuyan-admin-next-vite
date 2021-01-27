@@ -25,12 +25,12 @@ const response = function <T>(code: number, message: string, result: T): Respons
  * 成功
  */
 export function success<T>(result: T) {
-  return (): any => [200, response<T>(200, "请求成功", result)]
+  return (): any => [200, response<T>(1, "请求成功", result)]
 }
 
 /**
  * 失败
  */
 export function fail<T>(result: T) {
-  return (): any => [500, response<T>(200, "请求成功", result)]
+  return (): any => [500, response<T>(1, "请求成功", result)]
 }

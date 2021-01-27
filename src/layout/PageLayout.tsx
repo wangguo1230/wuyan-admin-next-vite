@@ -1,13 +1,21 @@
-import { PageHeader } from "ant-design-vue"
-import { defineComponent } from "vue"
+import { PageHeader, PageFooter, SideMenu } from "@/components"
+import { getUserInfoReactive } from "@/modules/user/login"
+import { defineComponent, reactive, ref, toRefs, watch } from "vue"
 
 export default defineComponent({
   setup() {
+    const {menuList,} = getUserInfoReactive()
+
     return () => (
-      <div>
-        <PageHeader></PageHeader>
-    
-        <div>啦啦啦</div>
+      <div class="wu-flex">
+        <div>
+          <SideMenu></SideMenu>
+        </div>
+        <div>
+          <PageHeader></PageHeader>
+          <div>内容</div>
+          <PageFooter></PageFooter>
+        </div>
       </div>
     )
   },

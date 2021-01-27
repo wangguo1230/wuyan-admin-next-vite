@@ -4,12 +4,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "w-upgrade": "yarn upgrade-interactive --latest"
+    "w-upgrade": "yarn upgrade-interactive --latest",
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.0.0",
     "ant-design-vue": "^2.0.0-rc.9",
     "axios": "^0.21.1",
+    "lodash": "^4.17.20",
     "vue": "^3.0.5",
     "vue-router": "^4.0.2",
     "vuex": "^4.0.0-rc.2"
@@ -19,9 +21,10 @@
     "@typescript-eslint/eslint-plugin": "^4.14.0",
     "@typescript-eslint/parser": "^4.14.0",
     "@vitejs/plugin-vue": "^1.1.2",
+    "@vitejs/plugin-vue-jsx": "^1.0.2",
     "@vue/compiler-sfc": "^3.0.5",
     "axios-mock-adapter": "^1.19.0",
-    "eslint": "^7.18.0",
+    "eslint": "^7.0.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-vue": "^7.5.0",
     "less": "^4.1.0",

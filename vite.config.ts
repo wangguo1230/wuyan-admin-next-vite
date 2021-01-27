@@ -1,5 +1,6 @@
 import { resolve } from "path"
 import vue from "@vitejs/plugin-vue"
+import vueJsx from "@vitejs/plugin-vue-jsx"
 import { defineConfig } from "vite"
 import type { UserConfig } from "vite"
 
@@ -13,7 +14,7 @@ function pathResolve(dir: string) {
 export default defineConfig({
   plugins: [
     // 用于正确编译.vue文件
-    vue()
+    vue(),vueJsx()
   ],
   build: {
     target: "es2015",
@@ -36,7 +37,7 @@ export default defineConfig({
     //只能深入导入的资源
     include: [
       // "ant-design-vue/es/locale/zh_CN",
-      // "lodash-es",
+      "lodash-es",
       // "ant-design-vue",
       // "@ant-design/icons-vue",
       // "axios",

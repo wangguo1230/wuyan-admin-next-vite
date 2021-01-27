@@ -3,7 +3,7 @@ import type { Ref, UnwrapRef } from "vue"
 
 type CallBack<T> = (params: T) => void
 export interface UseOption<T = any> extends Object {
-  callback?: CallBack<T>
+  callback?: CallBack<ResponseResult<T>>
   /**
    * 手动执行 会返回一个run函数用于执行。
    */
@@ -28,7 +28,7 @@ export interface UseRequestResult<T = any> {
   /**
    * run函数,用于手动执行
    */
-  run: (args:any) => Promise<ResponseResult<T>>
+  run: (args: any) => Promise<ResponseResult<T>>
 }
 export interface UseRequest {
   <T>(service: Service, initialState: T): UseRequestResult<T>
