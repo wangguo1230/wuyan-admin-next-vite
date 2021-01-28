@@ -13,8 +13,10 @@ function pathResolve(dir: string) {
  */
 export default defineConfig({
   plugins: [
-    // 用于正确编译.vue文件
-    vue(),vueJsx()
+    // 用于正确编译.vue文件  
+    vue(),
+    // 热更新 jsx
+    vueJsx()
   ],
   build: {
     target: "es2015",
@@ -41,7 +43,7 @@ export default defineConfig({
       // "ant-design-vue",
       // "@ant-design/icons-vue",
       // "axios",
-      "axios-mock-adapter","mockjs",
+      "axios-mock-adapter",
       // 兼容ant-design useForm
       "lodash-es/cloneDeep",
       "lodash-es/intersection",

@@ -1,16 +1,15 @@
-
 export interface Menu {
   id: string
   permissionName: string
   permissionCode: string
   permissionUrl: string
-  permissionIcon: string
+  permissionIcon: string | null
   parentId: string
-  permission: string
+  permission: string |null
   status: string
-  displayOrder: string
+  displayOrder: string | null |number
   permissionType: string
   component: string
-  redirect: string
-  children: Menu[]
+  redirect: string | null
+  children: Menu[] | null
 }
