@@ -13,7 +13,7 @@
     </div>
     <div class="login-content">
       <div class="login-logo">
-        <img src="logo.svg" />
+        <img src="/logo.svg" />
         <span class="title">Wu-yan Admin</span>
         <p class="describe">Ant Design 是西湖区最具影响力的 Web 设计规范</p>
       </div>

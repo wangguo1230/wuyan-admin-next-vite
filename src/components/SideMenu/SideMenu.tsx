@@ -22,7 +22,7 @@ export default defineComponent({
     const renderSubMenu = (data: MenuType) => {
       return (
         <SubMenu title={data.permissionName}>
-          {data.children.map((item) => renderMenu(item))}
+          {data.children?.map((item) => renderMenu(item))}
         </SubMenu>
       )
     }
@@ -34,7 +34,7 @@ export default defineComponent({
     const renderItem = (item: MenuType) => {
       // 方便扩展之后跳往第三方 构建a标签
       const CustomTag = RouterLink
-      const props={to:item.permissionUrl,}
+      const props = { to: item.permissionUrl, }
       return (
         <MenuItem>
           <CustomTag {...props}>

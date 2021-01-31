@@ -1,5 +1,6 @@
 import { Dropdown, Menu } from "ant-design-vue"
 import { defineComponent } from "vue"
+import  "./index.scss"
 const MenuItem = Menu.Item
 export default defineComponent({
   setup() {
@@ -13,8 +14,11 @@ export default defineComponent({
       ),
     }
     return () => (
-      <div class="wu-flex justify-center">
+      <div class="wu-page-header">
         <div>
+          左侧
+        </div>
+        <div class="wu-page-right">
           <Dropdown v-slots={slots}></Dropdown>
         </div>
       </div>

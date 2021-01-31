@@ -16,7 +16,7 @@ export default defineComponent({
     return () => (
       <div class="side-menu">
         <div class="logo">
-          <img style="display:inline" src="logo.svg"></img>
+          <img style="display:inline" src="/logo.svg"></img>
           <h1>Wu Yan Admin</h1>
         </div>
         <SideMenu menu-list={menuList.value}></SideMenu>

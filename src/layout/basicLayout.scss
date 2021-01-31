@@ -1,0 +1,10 @@
+@mixin layout-width {
+  width: 100%;
+}
+.wu-layout-wrapper {
+  @include layout-width();
+  display: flex;
+}
+.wu-layout-side {
+  @include layout-width();
+}
