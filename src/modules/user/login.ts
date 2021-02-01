@@ -37,7 +37,7 @@ export function loginReactive() {
     validate().then(() => {
       run(toRaw(login)).then((res) => {
         storageUtil.setStorageItem(UserEnum.Token, res.result)
-        router.push({ name: "main", })
+        router.push({ name: "/", })
       })
     })
   }

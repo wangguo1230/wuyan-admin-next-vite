@@ -13,7 +13,7 @@
     </div>
     <div class="login-content">
       <div class="login-logo">
-        <img src="/logo.svg" />
+        <img :src="logoUrl" />
         <span class="title">Wu-yan Admin</span>
         <p class="describe">Ant Design 是西湖区最具影响力的 Web 设计规范</p>
       </div>
@@ -86,6 +86,8 @@
   } from "@ant-design/icons-vue"
   import { Dropdown as ADropdown, Menu as AMenu, Tabs as ATabs } from "ant-design-vue"
   import { loginReactive } from "@/modules/user/login"
+import { ServiceEnum } from "@/enums"
+  
   const AMenuItem = AMenu.Item
   const ATabPane = ATabs.TabPane
 
@@ -108,6 +110,7 @@
       const prefixStyle = reactive({
         color: "rgba(0, 0, 0, 0.25)",
       })
+      const logoUrl =ref(ServiceEnum.LogoUrl)
       return {
         visibleRef,
         loading,
@@ -118,6 +121,7 @@
         validateInfos,
         inputSize,
         prefixStyle,
+        logoUrl,
       }
     },
   })

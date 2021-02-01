@@ -1,11 +1,11 @@
 import axios from "@/utils/httpUtil"
 import { AxiosResponse } from "axios"
 import { Login, UserInfo } from "@/types/system/user"
-import { Service } from "@/enums"
+import { ServiceEnum } from "@/enums"
 
 export const api = {
   login: "/login",
-  userInfo: `${Service.system}/user/getUserInfo`,
+  userInfo: `${ServiceEnum.SystemPath}/user/getUserInfo`,
 }
 
 export function loginApi(params: Login): Promise<AxiosResponse<string>> {

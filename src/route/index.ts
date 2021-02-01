@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router"
 import type { RouteRecordRaw } from "vue-router"
-
+import { storageUtil } from "@/utils"
+import { UserEnum } from "@/enums/system"
+import Nprogress from "nprogress"
+import "nprogress/nprogress.css"
 const routes: RouteRecordRaw[] = [
   {
     name: "login",
@@ -32,5 +35,17 @@ const route = createRouter({
   history: createWebHistory(),
   routes: routes,
 })
+
+route.beforeEach((to) => {
+  Nprogress.start()
+  const token = storageUtil.getStorageItem(UserEnum.Token)
+  console.log(token)
+  if (!token && to.name !== "login") {
+    return "/login"
+  }
+  return true
+})
+
+route.afterEach(Nprogress.done)
 
 export default route

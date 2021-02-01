@@ -10,7 +10,7 @@ class StorageUtil {
    * @param {Storage} [storage] 可选,可传入localStorage或sessionStorage 默认为sessionStorage
    * @memberof StorageUtil
    */
-  static setStorageItem(key: string, value: string, storage?: Storage) {
+  static setStorageItem(key: string, value: string, storage?: Storage) :void{
     const _storage = this.getStorage(storage)
     _storage.setItem(key, value)
   }
@@ -24,7 +24,7 @@ class StorageUtil {
    * @returns 获取到的数据
    * @memberof StorageUtil
    */
-  static getStorageItem(key: string, storage?: Storage) {
+  static getStorageItem(key: string, storage?: Storage): string | null {
     const _storage = this.getStorage(storage)
     return _storage.getItem(key)
   }

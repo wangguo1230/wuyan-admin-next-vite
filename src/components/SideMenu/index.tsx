@@ -3,6 +3,7 @@ import { defineComponent, PropType, toRefs } from "vue"
 import SideMenu from "./SideMenu"
 import "./index.scss"
 import Logo from "@/assets/logo.svg"
+import { ServiceEnum } from "@/enums"
 export default defineComponent({
   name: "SideMenu",
   props: {
@@ -16,7 +17,7 @@ export default defineComponent({
     return () => (
       <div class="side-menu">
         <div class="logo">
-          <img style="display:inline" src="/logo.svg"></img>
+          <img style="display:inline" src={ServiceEnum.LogoUrl}></img>
           <h1>Wu Yan Admin</h1>
         </div>
         <SideMenu menu-list={menuList.value}></SideMenu>

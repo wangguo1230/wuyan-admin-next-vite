@@ -1,4 +1,10 @@
-.wu-page-header{
+.wu-content-header{
   display: flex;
-  justify-self: center;
+  justify-content: space-between;
+  min-height: 40px;
+  line-height: 40px;
+
+  .wu-content-right{
+    padding-right: 20px;
+  }
 }

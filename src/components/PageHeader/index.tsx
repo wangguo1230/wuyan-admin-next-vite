@@ -5,7 +5,7 @@ const MenuItem = Menu.Item
 export default defineComponent({
   setup() {
     const slots = {
-      default: () => <div>用户</div>,
+      default: () => <div><img src="/logo.svg" alt=""/></div>,
       overlay: () => (
         <Menu>
           <MenuItem>个人中心</MenuItem>
@@ -14,11 +14,11 @@ export default defineComponent({
       ),
     }
     return () => (
-      <div class="wu-page-header">
+      <div class="wu-content-header">
         <div>
           左侧
         </div>
-        <div class="wu-page-right">
+        <div class="wu-content-right">
           <Dropdown v-slots={slots}></Dropdown>
         </div>
       </div>
