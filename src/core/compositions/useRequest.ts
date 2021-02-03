@@ -1,6 +1,6 @@
 
 import { ResponseResult } from "@/mocks/utils"
-import { ref } from "vue"
+import { Ref, ref } from "vue"
 import { UseRequest, Service, UseOption, UseRequestResult } from "./types"
 import { isObject } from "lodash"
 /**

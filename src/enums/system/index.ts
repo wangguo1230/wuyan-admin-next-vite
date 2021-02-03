@@ -1,1 +1,1 @@
-export { UserEnum } from "./userEnum"
+export { UserEnum } from "./UserEnum"

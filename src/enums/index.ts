@@ -6,7 +6,7 @@ export enum ServiceEnum {
   /**
    * 默认头像
    */
-  AvatarDefault = "/logo.svg",
+  AvatarDefault = "/avatar.png",
   /**
    * System 路径
    */

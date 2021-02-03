@@ -1,16 +1,16 @@
 import { PageHeader, PageFooter, SideMenu } from "@/components"
+import {  useProvide } from "@/core/compositions/useAggregation"
 import { getUserInfoReactive } from "@/modules/user/login"
-import { defineComponent, reactive, ref, toRefs, watch } from "vue"
+import { defineComponent } from "vue"
 import { RouterView } from "vue-router"
 import "./basicLayout.scss"
 export default defineComponent({
   name: "PageLayout",
   setup() {
-    const { menuList, } = getUserInfoReactive()
-
+    useProvide("userInfo", getUserInfoReactive())
     return () => (
       <div class="wu-layout-wrapper">
-        <SideMenu menu-list={menuList.value[0]?.children}></SideMenu>
+        <SideMenu></SideMenu>
         <div class="wu-layout-side">
           <PageHeader></PageHeader>
           <RouterView></RouterView>
