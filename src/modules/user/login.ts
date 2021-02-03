@@ -56,21 +56,25 @@ export const getUserInfoReactive = () => {
     idCard: "",
     isAdmin: false,
     status: "",
-    menuList: [{id: "",
-      permissionName: "",
-      permissionCode: "",
-      permissionUrl: "",
-      permissionIcon: "",
-      parentId: "",
-      permission:"",
-      status: "",
-      displayOrder: "",
-      permissionType: "",
-      component: "",
-      redirect: "",
-      children: [],
-    }],
+    menuList: [
+      {
+        id: "",
+        permissionName: "",
+        permissionCode: "",
+        permissionUrl: "",
+        permissionIcon: "",
+        parentId: "",
+        permission: "",
+        status: "",
+        displayOrder: "",
+        permissionType: "",
+        component: "",
+        redirect: "",
+        children: [],
+      }
+    ],
     permissionList: [],
   })
+
   return toRefs(data.value)
 }

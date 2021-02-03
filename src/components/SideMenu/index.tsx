@@ -13,8 +13,7 @@ export default defineComponent({
     },
   },
   setup() {
-    reactive
-    const menuList = useInject("userInfo",ref([]),"menuList.value.0.children")
+    const menuList = useInject("userInfo",ref([]),"menuList")
 
 
     return () => (
@@ -23,7 +22,7 @@ export default defineComponent({
           <img src={ServiceEnum.LogoUrl}></img>
           <h1>Wu Yan Admin</h1>
         </div>
-        <SideMenu menu-list={menuList.value}></SideMenu>
+        <SideMenu menu-list={menuList.value[0].children}></SideMenu>
       </div>
     )
   },

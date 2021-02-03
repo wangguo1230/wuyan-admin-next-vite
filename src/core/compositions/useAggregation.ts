@@ -1,5 +1,16 @@
-import { isUndefined } from "lodash"
-import { inject, InjectionKey, isReactive, isRef, provide, ref, Ref, UnwrapRef, watch } from "vue"
+import { get, isUndefined } from "lodash"
+import {
+  customRef,
+  inject,
+  InjectionKey,
+  isReactive,
+  isRef,
+  provide,
+  ref,
+  Ref,
+  UnwrapRef,
+  watch
+} from "vue"
 
 export const useProvide = <T>(key: InjectionKey<T> | string, value: T): void => {
   provide(key, value)
@@ -9,7 +20,7 @@ export const useProvide = <T>(key: InjectionKey<T> | string, value: T): void => 
 export const useInject = <T>(
   key: InjectionKey<T> | string,
   defaultVal: Ref<T>,
-  path?: string
+  path?: any
 ): Ref<T> => {
   // 初始值
   const injectValue: any = inject(key)
@@ -21,23 +32,10 @@ export const useInject = <T>(
   // 要返回的结果
   let result: any = injectValue
 
+  result = get(injectValue, path)
+
   // path
-  let pathArray: string[] = []
-
-  // 是否解析子级
-  if (result && path) {
-    // 如果 path为 a.b.c 解析子级
-    if (path.includes(".")) {
-      pathArray = path.split(".")
-
-      pathArray.forEach((variable: string) => {
-        result = result && result[variable]
-      })
-    } else {
-      result = result[path]
-      pathArray.push(path)
-    }
-  }
+  const pathArray: string[] = []
 
   // 如果结果是undefined 会返回defaultVal
   // 这个方法用来监听 父组件的值 来和 defaultVal 做关联
@@ -84,6 +82,13 @@ export const useInject = <T>(
       { deep: true, }
     )
   }
-
-  return result || defaultVal
+  return customRef((track, trigger) => ({
+    get() {
+      track()
+      return get(injectValue, path) || defaultVal
+    },
+    set() {
+      trigger()
+    },
+  }))
 }
