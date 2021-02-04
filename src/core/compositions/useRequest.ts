@@ -1,8 +1,9 @@
 
 import { ResponseResult } from "@/mocks/utils"
-import { Ref, ref } from "vue"
+import {  ref } from "vue"
 import { UseRequest, Service, UseOption, UseRequestResult } from "./types"
 import { isObject } from "lodash"
+
 /**
  * 使用request 请求,自动包装loading以及数据。
  * @param {Service} service 返回promise对象的接口服务
@@ -40,10 +41,10 @@ const useRequest: UseRequest = function useRequest<T>(
     loading.value = true
     service()
       .then((res: ResponseResult<T>) => {
-        // @ts-ignore 
+        // @ts-ignore
         // 兼容object
         data.value = isObject(data.value) ? Object.assign(data.value, res.result) : res.result
-        callback && callback(res)
+        callback && callback(data,res)
       })
       .finally(() => (loading.value = false))
   }

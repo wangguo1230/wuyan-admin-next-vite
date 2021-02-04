@@ -56,6 +56,11 @@ module.exports = {
     ],
     // 优先使用 interface 而不是 type
     "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    // 不建议使用一些内置的类型
+    "@typescript-eslint/ban-types": [
+      "warn"
+    ],
+    "@typescript-eslint/ban-ts-comment":["off"],
     // 计算属性中必须return一个值
     "vue/return-in-computed-property": [
       "error",

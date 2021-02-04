@@ -1,11 +1,12 @@
 import { UserEnum } from "@/enums/system"
-import { reactive, Ref, ref, toRaw, toRefs, watch } from "vue"
+import { reactive, ref, toRaw, toRefs } from "vue"
 import { useRequest } from "@/core"
 import { useForm } from "@ant-design-vue/use"
 import { getUserInfo, loginApi } from "@/api"
 import { useRouter } from "vue-router"
 import { storageUtil } from "@/utils"
 import { UserInfo } from "@/types/system/user"
+
 
 export function loginReactive() {
   const visibleRef = ref(false)
@@ -56,25 +57,9 @@ export const getUserInfoReactive = () => {
     idCard: "",
     isAdmin: false,
     status: "",
-    menuList: [
-      {
-        id: "",
-        permissionName: "",
-        permissionCode: "",
-        permissionUrl: "",
-        permissionIcon: "",
-        parentId: "",
-        permission: "",
-        status: "",
-        displayOrder: "",
-        permissionType: "",
-        component: "",
-        redirect: "",
-        children: [],
-      }
-    ],
+    menuList: [],
     permissionList: [],
   })
 
-  return toRefs(data.value)
+  return data
 }

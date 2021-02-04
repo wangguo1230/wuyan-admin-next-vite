@@ -1,94 +1,68 @@
-import { get, isUndefined } from "lodash"
-import {
-  customRef,
-  inject,
-  InjectionKey,
-  isReactive,
-  isRef,
-  provide,
-  ref,
-  Ref,
-  UnwrapRef,
-  watch
-} from "vue"
+import { UseKey } from "@/enums"
+import { get, isFunction, isObject, PropertyPath, set } from "lodash"
+import { customRef, inject, InjectionKey, provide, readonly, Ref } from "vue"
+import { updateEvent } from "./types"
 
-export const useProvide = <T>(key: InjectionKey<T> | string, value: T): void => {
-  provide(key, value)
+/**
+ * 注入数据
+ * @param key 注入的key
+ * @param value 注入的值
+ * @param event 修改值的事件 默认支持 path 和全部注入 如果不传入的话 有默认的实现函数
+ */
+export const useProvide = <T extends object>(
+  key: string,
+  value: Ref<T>,
+  event?: updateEvent<T>
+): void => {
+  
+  // 注入
+  provide(key, readonly(value.value))
+
+  // 注册更新事件
+  const updateEvent =
+    event ||
+    ((newVal: T, path: PropertyPath | undefined) => {
+      if (path) {
+        set(value.value, path, newVal)
+      } else {
+        value.value = isObject(newVal) ? Object.assign(value.value, newVal) : newVal
+      }
+    })
+
+  // 注入更新事件
+  provide(key + UseKey.Event, updateEvent)
 }
 
-// todo 需要使用customRef 来解决不统一的问题
-export const useInject = <T>(
-  key: InjectionKey<T> | string,
-  defaultVal: Ref<T>,
-  path?: any
-): Ref<T> => {
+/**
+ * 自定义ref JSX或渲染函数需要.value才可以获取到 模板自动解构
+ * @param key 注入的key值
+ * @param defaultVal 默认值
+ * @param path 路径
+ */
+export const useInject = <T>(key: string, defaultVal: Ref<T>, path?: PropertyPath): Ref<T> => {
   // 初始值
-  const injectValue: any = inject(key)
+  const injectValue = inject(key) || {}
+  // 使用事件对对象进行更改
+  // 因为作用域原因 不能放到set中
+  const event = inject(key + UseKey.Event)
 
-  if (!injectValue) {
-    return defaultVal
-  }
-
-  // 要返回的结果
-  let result: any = injectValue
-
-  result = get(injectValue, path)
-
-  // path
-  const pathArray: string[] = []
-
-  // 如果结果是undefined 会返回defaultVal
-  // 这个方法用来监听 父组件的值 来和 defaultVal 做关联
-  if (isUndefined(result) && path) {
-    let watchObj = null
-
-    // 标识是否以path的第一级为监听对象
-    let flag = true
-
-    // 第一级路径
-    const firstPath = pathArray[0]
-
-    // 首先以path的第一级为监听对象
-    if (
-      injectValue[firstPath] &&
-      (isReactive(injectValue[firstPath]) || isRef(injectValue[firstPath]))
-    ) {
-      // 赋值
-      watchObj = injectValue[firstPath]
-      flag = false
-    } else if (isReactive(injectValue) || isRef(injectValue)) {
-      // 以inject 的值为监听对象
-      watchObj = injectValue
-    } else {
-      throw "inject value is can not reactive"
-    }
-
-    // 监听
-    watch(
-      watchObj,
-      (value) => {
-        value = ref(value)
-        pathArray.forEach((item, index) => {
-          if (flag) {
-            value = value && value[item]
-          } else {
-            if (index > 0) {
-              value = value && value[item]
-            }
-          }
-        })
-        defaultVal.value = value
-      },
-      { deep: true, }
-    )
-  }
   return customRef((track, trigger) => ({
     get() {
       track()
-      return get(injectValue, path) || defaultVal
+      console.log("get")
+      if (!path) {
+        return injectValue
+      }
+      return get(injectValue, path, defaultVal)
     },
-    set() {
+    set(value) {
       trigger()
+
+      defaultVal.value = value
+
+      if (event && isFunction(event)) {
+        event(value, path)
+      }
     },
   }))
 }

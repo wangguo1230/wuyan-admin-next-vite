@@ -1,3 +1,6 @@
+/**
+ * Service枚举
+ */
 export enum ServiceEnum {
   /**
    * logo
@@ -11,4 +14,12 @@ export enum ServiceEnum {
    * System 路径
    */
   SystemPath = "/system"
+}
+
+/**
+ * useAggregation 所使用的的枚举类
+ */
+export enum UseKey {
+  Event="event",
+  UserInfo = "userInfo"
 }

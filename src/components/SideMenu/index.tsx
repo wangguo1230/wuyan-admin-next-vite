@@ -1,9 +1,10 @@
 import { Menu as MenuType } from "@/types/system/menu"
-import { defineComponent, PropType, reactive, Ref, ref, toRefs } from "vue"
+import { defineComponent, PropType, Ref, ref } from "vue"
 import SideMenu from "./SideMenu"
 import "./index.scss"
-import { ServiceEnum } from "@/enums"
+import { ServiceEnum, UseKey } from "@/enums"
 import { useInject } from "@/core/compositions/useAggregation"
+
 export default defineComponent({
   name: "SideMenu",
   props: {
@@ -13,16 +14,15 @@ export default defineComponent({
     },
   },
   setup() {
-    const menuList = useInject("userInfo",ref([]),"menuList")
-
-
+    const menuList = useInject(UseKey.UserInfo,ref([]),"menuList")
+ 
     return () => (
       <div class="side-menu">
         <div class="logo">
           <img src={ServiceEnum.LogoUrl}></img>
           <h1>Wu Yan Admin</h1>
         </div>
-        <SideMenu menu-list={menuList.value[0].children}></SideMenu>
+        <SideMenu menu-list={menuList.value[0]?.children}></SideMenu>
       </div>
     )
   },

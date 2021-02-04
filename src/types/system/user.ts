@@ -16,6 +16,7 @@ export interface UserInfo {
   idCard: string
   isAdmin: boolean
   status: string
+  avatar?:string,
   menuList: Menu[]
   permissionList: Menu[]
 }

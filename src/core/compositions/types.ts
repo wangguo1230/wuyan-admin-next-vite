@@ -1,13 +1,14 @@
 import { ResponseResult } from "@/mocks/utils"
+import { PropertyPath } from "lodash"
 import type { Ref, UnwrapRef } from "vue"
 
-type CallBack<T> = (params: T) => void
+type CallBack<T, R> = (ref: T, result: R) => void
 export interface UseOption<T = any> extends Object {
-  callback?: CallBack<ResponseResult<T>>
+  callback?: CallBack<Ref<UnwrapRef<T>>, ResponseResult<T>>
   /**
    * 手动执行 会返回一个run函数用于执行。
    */
-  immediate: boolean
+  immediate?: boolean
   /**
    * 防抖
    */
@@ -34,3 +35,8 @@ export interface UseRequest {
   <T>(service: Service, initialState: T): UseRequestResult<T>
   <T>(service: Service, initialState: T, options: UseOption): UseRequestResult<T>
 }
+
+/**
+ * 更新事件
+ */
+export type updateEvent<T> = (value: T, path: PropertyPath | undefined) => void

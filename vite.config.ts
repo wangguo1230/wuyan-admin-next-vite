@@ -4,9 +4,7 @@ import vueJsx from "@vitejs/plugin-vue-jsx"
 import { defineConfig } from "vite"
 import type { UserConfig } from "vite"
 
-function pathResolve(dir: string) {
-  return resolve(__dirname, ".", dir)
-}
+const projectRootDir = resolve(__dirname)
 
 /**
  * @type {import('vite').UserConfig}
@@ -58,7 +56,7 @@ export default defineConfig({
   alias: [
     {
       find: "@",
-      replacement: pathResolve("./src"),
+      replacement:resolve(projectRootDir, "src"),
     }
   ],
 } as UserConfig)
