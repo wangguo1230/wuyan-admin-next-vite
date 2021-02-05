@@ -1,7 +1,7 @@
-import  MockAdapter  from "axios-mock-adapter"
-import http from "./httpUtil"
+// import  MockAdapter  from "axios-mock-adapter"
+// import http from "./httpUtil"
 
 
-const mock = new MockAdapter(http)
+// const mock = new MockAdapter(http)
 
-export default mock
+// export default mock

@@ -2,8 +2,8 @@
   "name": "wuyan-admin-next",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --mode dev",
+    "build": "vuedx-typecheck . && vite build ",
     "w-upgrade": "yarn upgrade-interactive --latest",
     "eslint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
@@ -14,17 +14,17 @@
     "lodash": "^4.17.20",
     "nprogress": "^0.2.0",
     "vue": "^3.0.5",
-    "vue-router": "^4.0.2",
-    "vuex": "^4.0.0-rc.2"
+    "vue-router": "^4.0.2"
   },
   "devDependencies": {
-    "@types/node": "^14.14.24",
+    "@types/node": "^14.14.25",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
     "@vitejs/plugin-vue": "^1.1.4",
     "@vitejs/plugin-vue-jsx": "^1.0.2",
     "@vue/compiler-sfc": "^3.0.5",
-    "axios-mock-adapter": "^1.19.0",
+    "@vuedx/typecheck": "^0.6.3",
+    "@vuedx/typescript-plugin-vue": "^0.6.3",
     "eslint": "^7.0.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-vue": "^7.5.0",

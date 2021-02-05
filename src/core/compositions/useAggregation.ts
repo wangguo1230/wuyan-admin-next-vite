@@ -49,7 +49,6 @@ export const useInject = <T>(key: string, defaultVal: Ref<T>, path?: PropertyPat
   return customRef((track, trigger) => ({
     get() {
       track()
-      console.log("get")
       if (!path) {
         return injectValue
       }

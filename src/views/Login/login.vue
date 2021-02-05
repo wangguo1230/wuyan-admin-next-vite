@@ -4,7 +4,7 @@
       <a-dropdown v-model:visible="visibleRef">
         <global-outlined />
         <template #overlay>
-          <a-menu @click="handleMenuClick">
+          <a-menu>
             <a-menu-item key="1"> 中文 </a-menu-item>
             <a-menu-item key="2"> English </a-menu-item>
           </a-menu>
@@ -19,11 +19,15 @@
       </div>
       <div class="main">
         <a-spin :spinning="loading">
-          <a-form layout="horizontal" :wrapper-col="{ span: 24 }" @submit="onSumbit">
+          <a-form layout="horizontal" :wrapper-col="{ span: 24 }">
             <a-tabs :tab-bar-style="{ textAlign: 'center', borderBottom: 'unset' }">
               <a-tab-pane key="1" tab="账号密码登录">
-                <a-form-item v-bind="validateInfos.account">
-                  <a-input v-model:value="login.account" :size="inputSize" placeholder="账号">
+                <a-form-item v-bind="validateInfos.username">
+                  <a-input
+                    v-model:value="login.username"
+                    :size="inputSize"
+                    placeholder="账号"
+                  >
                     <template #prefix>
                       <user-outlined :style="prefixStyle" />
                     </template>
@@ -39,6 +43,15 @@
                       <lock-outlined :style="prefixStyle" />
                     </template>
                   </a-input-password>
+                </a-form-item>
+                <a-form-item>
+                  <a-row>
+                    <a-col :span="14"><a-input :size="inputSize"></a-input></a-col>
+                    <a-col :span="2"></a-col>
+                    <a-col :span="8"
+                      ><img :src="captchaSrc" @click="clickCaptcha"
+                    /></a-col>
+                  </a-row>
                 </a-form-item>
               </a-tab-pane>
               <a-tab-pane key="2" tab="手机验证码登录">
@@ -76,94 +89,109 @@
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent, reactive, ref } from "vue"
-  import {
+import { defineComponent, reactive, ref } from "vue";
+import {
+  UserOutlined,
+  LockOutlined,
+  GlobalOutlined,
+  MobileOutlined,
+  MailOutlined,
+} from "@ant-design/icons-vue";
+import { Dropdown as ADropdown, Menu as AMenu, Tabs as ATabs } from "ant-design-vue";
+import { loginReactive } from "@/modules/user/login";
+import { ServiceEnum } from "@/enums";
+
+const AMenuItem = AMenu.Item;
+const ATabPane = ATabs.TabPane;
+
+export default defineComponent({
+  components: {
     UserOutlined,
     LockOutlined,
+    ADropdown,
     GlobalOutlined,
+    AMenu,
+    AMenuItem,
+    ATabs,
+    ATabPane,
     MobileOutlined,
-    MailOutlined
-  } from "@ant-design/icons-vue"
-  import { Dropdown as ADropdown, Menu as AMenu, Tabs as ATabs } from "ant-design-vue"
-  import { loginReactive } from "@/modules/user/login"
-import { ServiceEnum } from "@/enums"
-  
-  const AMenuItem = AMenu.Item
-  const ATabPane = ATabs.TabPane
+    MailOutlined,
+  },
+  setup(props) {
+    const {
+      loading,
+      run,
+      data,
+      visibleRef,
+      onSubmit,
+      login,
+      validateInfos,
+      captchaSrc,
+      clickCaptcha,
+    } = loginReactive();
 
-  export default defineComponent({
-    components: {
-      UserOutlined,
-      LockOutlined,
-      ADropdown,
-      GlobalOutlined,
-      AMenu,
-      AMenuItem,
-      ATabs,
-      ATabPane,
-      MobileOutlined,
-      MailOutlined,
-    },
-    setup(props) {
-      const { loading, run, data, visibleRef, onSubmit, login, validateInfos, } = loginReactive()
-      const inputSize = ref("large")
-      const prefixStyle = reactive({
-        color: "rgba(0, 0, 0, 0.25)",
-      })
-      const logoUrl =ref(ServiceEnum.LogoUrl)
-      return {
-        visibleRef,
-        loading,
-        data,
-        run,
-        login,
-        onSubmit,
-        validateInfos,
-        inputSize,
-        prefixStyle,
-        logoUrl,
-      }
-    },
-  })
+    const inputSize = ref("large");
+
+    const prefixStyle = reactive({
+      color: "rgba(0, 0, 0, 0.25)",
+    });
+
+    const logoUrl = ref(ServiceEnum.LogoUrl);
+    return {
+      visibleRef,
+      loading,
+      data,
+      run,
+      login,
+      onSubmit,
+      validateInfos,
+      inputSize,
+      prefixStyle,
+      logoUrl,
+      captchaSrc,
+      clickCaptcha,
+    };
+  },
+});
 </script>
 <style lang="scss">
-  .login-wrapper {
-  }
-  .internationalization {
-    text-align: right;
-    margin-right: 25px;
-    padding: 10px;
-    font-size: 1.2rem;
-  }
-  .login-content {
-    padding-top: 5%;
-    .login-logo {
-      padding: 50px;
-      text-align: center;
+.login-wrapper {
+}
+.internationalization {
+  text-align: right;
+  margin-right: 25px;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+.login-content {
+  padding-top: 5%;
+  .login-logo {
+    padding: 50px;
+    text-align: center;
 
-      img {
-        height: 44px;
-      }
-      .title {
-        padding: 10px;
-        font-size: 2rem;
-        color: rgba(0, 0, 0, 0.85);
-        font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
-        font-weight: 600;
-        position: relative;
-        top: 2px;
-      }
-
-      .describe {
-        opacity: 0.8;
-        padding-top: 10px;
-      }
+    img {
+      height: 44px;
+    }
+    .title {
+      padding: 10px;
+      font-size: 2rem;
+      color: rgba(0, 0, 0, 0.85);
+      font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+      font-weight: 600;
+      position: relative;
+      top: 2px;
     }
 
-    .main {
-      min-width: 260px;
-      width: 368px;
-      margin: 0 auto;
+    .describe {
+      opacity: 0.8;
+      padding-top: 10px;
     }
   }
+
+  .main {
+    min-width: 260px;
+    width: 368px;
+    margin: 0 auto;
+  }
+}
 </style>

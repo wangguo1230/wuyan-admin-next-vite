@@ -33,8 +33,8 @@ module.exports = {
   // 配置.vue文件以及ts
   plugins: ["vue", "@typescript-eslint"],
   rules: {
-    "no-console": "off",
-    // 'no-debugger': import.meta.env === 'production' ? 'error' : 'off',
+    "no-console":import.meta.env === "production" ? "error" : "off",
+    "no-debugger": import.meta.env === "production" ? "error" : "off",
     //语句强制分号结尾
     semi: ["error", "never"],
     quotes: "off",

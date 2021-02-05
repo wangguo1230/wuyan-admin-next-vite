@@ -12,7 +12,7 @@ export interface UserInfo {
   password: string
   sex: string
   mobilePhone: string
-  email: string
+  email?: string
   idCard: string
   isAdmin: boolean
   status: string

@@ -4,20 +4,18 @@ import vueJsx from "@vitejs/plugin-vue-jsx"
 import { defineConfig } from "vite"
 import type { UserConfig } from "vite"
 
-const projectRootDir = resolve(__dirname)
-
 /**
  * @type {import('vite').UserConfig}
  */
 export default defineConfig({
   plugins: [
-    // 用于正确编译.vue文件  
+    // 用于正确编译.vue文件
     vue(),
     // 热更新 jsx
-    vueJsx()
+    vueJsx(),
   ],
   build: {
-    target: "es2015",
+    target: "esnext",
     // base: "/",
   },
   // Client Types
@@ -29,19 +27,15 @@ export default defineConfig({
   // 默认为react的jsx 需要显示弄成vue的
   esbuild: {
     // 解决头部引入h的问题
-    jsxInject: "import { h } from \"vue\"",
+    jsxInject: 'import { h } from "vue"',
     jsxFactory: "h",
     jsxFragment: "Fragment",
   },
   optimizeDeps: {
     //只能深入导入的资源
     include: [
-      // "ant-design-vue/es/locale/zh_CN",
       "lodash-es",
-      // "ant-design-vue",
-      // "@ant-design/icons-vue",
-      // "axios",
-      "axios-mock-adapter",
+      "axios",
       // 兼容ant-design useForm
       "lodash-es/cloneDeep",
       "lodash-es/intersection",
@@ -50,13 +44,17 @@ export default defineConfig({
       "lodash-es/omit",
       "ant-design-vue/es/form/utils/validateUtil",
       "ant-design-vue/es/form/utils/messages",
-      "ant-design-vue/es/form/utils/asyncUtil"
+      "ant-design-vue/es/form/utils/asyncUtil",
     ],
   },
-  alias: [
-    {
-      find: "@",
-      replacement:resolve(projectRootDir, "src"),
-    }
-  ],
+  alias: [{ find: "@", replacement: resolve(__dirname, "/src") }],
+  server: {
+    port: 3000,
+    proxy: {
+      "/springboot-admin": {
+        target: "http://localhost:8090",
+        changeOrigin: true,
+      },
+    },
+  },
 } as UserConfig)

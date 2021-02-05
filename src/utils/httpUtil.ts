@@ -1,7 +1,7 @@
 import axios from "axios"
 import { AxiosResponse } from "axios"
 const http = axios.create({
-  baseURL: "",
+  baseURL: import.meta.env.VITE_APP_API,
   timeout: 3000,
 })
 

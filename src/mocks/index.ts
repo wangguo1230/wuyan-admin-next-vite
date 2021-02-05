@@ -19,6 +19,7 @@ mock.onPost("/system/user/getUserInfo").reply(
     email: null,
     idCard: null,
     isAdmin: true,
+    avatar:"https://vitejs.dev/logo.svg",
     status: "1",
     menuList: [
       {
