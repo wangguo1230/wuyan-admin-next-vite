@@ -1,8 +1,12 @@
+import { logout } from "@/api/system/user/loginApi"
 import { useInject } from "@/core/compositions/useAggregation"
 import { ServiceEnum, UseKey } from "@/enums"
+import { UserEnum } from "@/enums/system"
 import { UserInfo } from "@/types/system/user"
+import { storageUtil } from "@/utils"
 import { Avatar, Dropdown, Menu } from "ant-design-vue"
 import { defineComponent, ref } from "vue"
+import { useRouter } from "vue-router"
 import "./index.scss"
 const MenuItem = Menu.Item
 export default defineComponent({
@@ -24,9 +28,18 @@ export default defineComponent({
         menuList: [],
         permissionList: [],
       }),
-      "",
+      ""
     )
-
+    const router =useRouter()
+    const menuClick = (params: { key: string }) => {
+      console.log(params)
+      if (params.key === "logout") {
+        logout().then(()=>{
+          storageUtil.removeStorageItem(UserEnum.Token)
+          window.location.reload()
+        })
+      }
+    }
     const slots = {
       default: () => (
         <div>
@@ -38,9 +51,9 @@ export default defineComponent({
         </div>
       ),
       overlay: () => (
-        <Menu>
-          <MenuItem>个人中心</MenuItem>
-          <MenuItem>退出</MenuItem>
+        <Menu onClick={menuClick}>
+          <MenuItem key="me">个人中心</MenuItem>
+          <MenuItem key="logout">退出</MenuItem>
         </Menu>
       ),
     }

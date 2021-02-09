@@ -22,7 +22,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    // 用于在vue文件上有更好的规则校验
-    "plugins": [{ "name": "@vuedx/typescript-plugin-vue" }]
+    // 用于把vue文件转为对应的函数式
+    // "plugins": [{ "name": "@vuedx/typescript-plugin-vue" }]
   }
 }

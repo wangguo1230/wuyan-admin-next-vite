@@ -10,7 +10,7 @@ class StorageUtil {
    * @param {Storage} [storage] 可选,可传入localStorage或sessionStorage 默认为sessionStorage
    * @memberof StorageUtil
    */
-  static setStorageItem(key: string, value: string, storage?: Storage) :void{
+  static setStorageItem(key: string, value: string, storage?: Storage): void {
     const _storage = this.getStorage(storage)
     _storage.setItem(key, value)
   }
@@ -31,6 +31,16 @@ class StorageUtil {
 
   private static getStorage(storage: Storage | undefined | null) {
     return storage ?? this.defaultStorage
+  }
+
+  static removeStorageItem(key: string, storage?: Storage): void {
+    const _storage = this.getStorage(storage)
+    _storage.removeItem(key)
+  }
+
+  static clearStorage(storage?: Storage): void {
+    const _storage = this.getStorage(storage)
+    _storage.clear()
   }
 }
 

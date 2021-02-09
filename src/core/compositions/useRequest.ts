@@ -1,6 +1,5 @@
-
-import { ResponseResult } from "@/mocks/utils"
-import {  ref } from "vue"
+import type { ResponseResult } from "@/utils/types"
+import { ref } from "vue"
 import { UseRequest, Service, UseOption, UseRequestResult } from "./types"
 import { isObject } from "lodash"
 
@@ -25,11 +24,13 @@ const useRequest: UseRequest = function useRequest<T>(
     loading.value = true
     return new Promise((resolve, reject) => {
       service(args)
-        .then((res: ResponseResult<T>) => {
+        .then((res) => {
           // @ts-ignore
           // 兼容object
-          data.value = isObject(data.value) ? Object.assign(data.value, res.result) : res.result
-          resolve(res)
+          data.value = isObject(data.value)
+            ? Object.assign(data.value, res.data.result)
+            : res.data.result
+          resolve(res.data)
         })
         .catch((res: ResponseResult<T>) => {
           reject(res)
@@ -40,11 +41,13 @@ const useRequest: UseRequest = function useRequest<T>(
   if (immediate) {
     loading.value = true
     service()
-      .then((res: ResponseResult<T>) => {
+      .then((res) => {
         // @ts-ignore
         // 兼容object
-        data.value = isObject(data.value) ? Object.assign(data.value, res.result) : res.result
-        callback && callback(data,res)
+        data.value = isObject(data.value)
+          ? Object.assign(data.value, res.data.result)
+          : res.data.result
+        callback && callback(data, res.data)
       })
       .finally(() => (loading.value = false))
   }

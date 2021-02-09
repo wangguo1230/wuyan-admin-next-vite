@@ -1,4 +1,5 @@
-import { ResponseResult } from "@/mocks/utils"
+import { ResponseResult } from "@/utils/types"
+import { AxiosResponse } from "axios"
 import { PropertyPath } from "lodash"
 import type { Ref, UnwrapRef } from "vue"
 
@@ -15,7 +16,7 @@ export interface UseOption<T = any> extends Object {
   debounce?: boolean
 }
 
-export type Service<T = any> = (params?: any) => Promise<T>
+export type Service<T = any> = (params?: any) => Promise<AxiosResponse<T>>
 
 export interface UseRequestResult<T = any> {
   /**

@@ -1,3 +1,3 @@
-import http from "./httpUtil"
+import axios from "./axiosRequest"
 import storageUtil from "./storageUtil"
-export { http, storageUtil }
+export { axios, storageUtil }

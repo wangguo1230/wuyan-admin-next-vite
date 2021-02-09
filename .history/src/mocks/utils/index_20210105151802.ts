@@ -1,3 +1,0 @@
-interface  ResponseResult{
-  Result:
-}

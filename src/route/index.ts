@@ -37,9 +37,9 @@ const route = createRouter({
 })
 
 route.beforeEach((to) => {
-  // Nprogress.start()
+  Nprogress.start()
   const token = storageUtil.getStorageItem(UserEnum.Token)
-  console.log(token)
+  debugger
   if (!token && to.name !== "login") {
     return "/login"
   }

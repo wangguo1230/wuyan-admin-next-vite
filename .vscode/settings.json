@@ -24,5 +24,8 @@
   "eslint.options": {
     //指定vscode的eslint所处理的文件的后缀
     "extensions": [".js", ".vue", ".ts", ".tsx", "jsx"]
-  }
+  },
+  // 启用 悬停，跳转到定义和查找引用 此功能是实验性的
+  "vetur.experimental.templateInterpolationService": true,
+  "files.autoSave": "onFocusChange"
 }

@@ -1,5 +1,5 @@
 
-import { loginApi ,getUserInfo} from "./system/user/loginApi"
+import { loginApi ,getUserInfo,logout} from "./system/user/loginApi"
 
 
 
