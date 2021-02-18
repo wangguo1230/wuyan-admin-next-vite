@@ -54,7 +54,7 @@
                       </a-input>
                     </a-col>
                     <a-col :span="2" />
-                    <a-col :span="8"><img :src="captchaSrc" @click="clickCaptcha" /></a-col>
+                    <a-col :span="8"><a-image :preview="false"  placeholder :src="captchaSrc" @click="clickCaptcha"/></a-col>
                   </a-row>
                 </a-form-item>
               </a-tab-pane>
@@ -102,7 +102,7 @@
     MailOutlined,
     SmileOutlined
   } from "@ant-design/icons-vue"
-  import { Dropdown as ADropdown, Menu as AMenu, Tabs as ATabs } from "ant-design-vue"
+  import { Dropdown as ADropdown, Menu as AMenu, Tabs as ATabs,Image as AImage } from "ant-design-vue"
   import { loginReactive } from "@/modules/user/login"
   import { ServiceEnum } from "@/enums"
 
@@ -122,6 +122,7 @@
       MobileOutlined,
       MailOutlined,
       SmileOutlined,
+      AImage,
     },
     setup() {
       const {
