@@ -12,7 +12,7 @@ export default defineConfig({
     // 用于正确编译.vue文件
     vue(),
     // 热更新 jsx
-    vueJsx(),
+    vueJsx()
   ],
   build: {
     target: "esnext",
@@ -27,7 +27,7 @@ export default defineConfig({
   // 默认为react的jsx 需要显示弄成vue的
   esbuild: {
     // 解决头部引入h的问题
-    jsxInject: 'import { h } from "vue"',
+    jsxInject: "import { h } from \"vue\"",
     jsxFactory: "h",
     jsxFragment: "Fragment",
   },
@@ -44,10 +44,12 @@ export default defineConfig({
       "lodash-es/omit",
       "ant-design-vue/es/form/utils/validateUtil",
       "ant-design-vue/es/form/utils/messages",
-      "ant-design-vue/es/form/utils/asyncUtil",
+      "ant-design-vue/es/form/utils/asyncUtil"
     ],
   },
-  alias: [{ find: "@", replacement: resolve(__dirname, "/src") }],
+  resolve: {
+    alias: [{ find: "@", replacement: resolve(__dirname, "/src"), }],
+  },
   server: {
     port: 3000,
     proxy: {
