@@ -2,6 +2,7 @@ import axios from "@/utils/axiosRequest"
 import { AxiosResponse } from "axios"
 import { Login, UserInfo } from "@/types/system/user"
 import { ServiceEnum } from "@/enums"
+import { ResponseResult } from "@/utils/types"
 
 export const api = {
   login: "/login",
@@ -17,8 +18,8 @@ export function logout(): Promise<AxiosResponse<string>> {
   return axios.post(api.logout)
 }
 
-export function getUserInfo(): Promise<AxiosResponse<UserInfo>> {
+export function getUserInfo(): Promise<AxiosResponse<ResponseResult<UserInfo>>> {
   console.log(api.userInfo)
 
-  return axios.post<UserInfo>(api.userInfo)
+  return axios.post<ResponseResult<UserInfo>>(api.userInfo)
 }

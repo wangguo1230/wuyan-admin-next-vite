@@ -17,7 +17,9 @@ export interface UseOption<T = any> extends Object {
 }
 
 export type Service<T = any> = (params?: any) => Promise<AxiosResponse<T>>
-
+interface Run<T>{
+  (args?: any) : Promise<ResponseResult<T>>
+}
 export interface UseRequestResult<T = any> {
   /**
    * loading的状态
@@ -30,7 +32,7 @@ export interface UseRequestResult<T = any> {
   /**
    * run函数,用于手动执行
    */
-  run: (args: any) => Promise<ResponseResult<T>>
+  run: Run<T>
 }
 export interface UseRequest {
   <T>(service: Service, initialState: T): UseRequestResult<T>

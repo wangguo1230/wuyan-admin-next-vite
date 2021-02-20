@@ -20,7 +20,7 @@ const useRequest: UseRequest = function useRequest<T>(
 
   const { immediate, callback, } = options
 
-  const run: UseRequestResult<T>["run"] = (args) => {
+  const run: UseRequestResult<T>["run"] = (args = undefined) => {
     loading.value = true
     return new Promise((resolve, reject) => {
       service(args)

@@ -1,7 +1,9 @@
-import PageFooter from "./PageFooter"
+import PageFooter from "./page-footer"
 
-import PageHeader from "./PageHeader"
+import PageHeader from "./page-header"
 
-import SideMenu from "./SideMenu"
+import SideMenu from "./side-menu"
 
-export { PageFooter, PageHeader, SideMenu }
+import WTable from "./w-table"
+
+export { PageFooter, PageHeader, SideMenu,WTable }

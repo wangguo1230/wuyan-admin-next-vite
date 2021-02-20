@@ -3,7 +3,7 @@ import vue from "@vitejs/plugin-vue"
 import vueJsx from "@vitejs/plugin-vue-jsx"
 import { defineConfig } from "vite"
 import type { UserConfig } from "vite"
-
+import dynamicImportVars from "@rollup/plugin-dynamic-import-vars"
 /**
  * @type {import('vite').UserConfig}
  */

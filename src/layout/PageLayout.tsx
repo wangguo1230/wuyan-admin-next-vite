@@ -1,11 +1,14 @@
 import { defineComponent } from "vue"
-import { RouterView } from "vue-router"
+import {  RouterView, useRoute } from "vue-router"
 
 export default defineComponent({
-  setup() {
+  props:{
+  },
+  setup(props) {
+   const route = useRoute()
     return () => (
       <div>
-        page
+        <h1>{route.meta.title}</h1>
         <RouterView></RouterView>
       </div>
     )

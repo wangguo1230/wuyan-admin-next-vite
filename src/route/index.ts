@@ -9,27 +9,36 @@ const routes: RouteRecordRaw[] = [
     name: "login",
     path: "/login",
     component: () => import("@/views/login/Login.vue"),
-  },
-  {
-    name: "/",
-    path: "/",
-    component: () => import("@/layout/BasicLayout"),
-    children: [
-      {
-        name: "system",
-        path: "/system",
-        component: () => import("@/layout/PageLayout"),
-        // redirect: "/system/user",
-        children: [
-          {
-            name: "user",
-            path: "/system/user",
-            component: () => import("@/views/system/user/User.vue"),
-          }
-        ],
-      }
-    ],
   }
+  // {
+  //   name: "/",
+  //   path: "/",
+  //   component: () => import("@/layout/BasicLayout"),
+  //   meta:{
+  //     title:"首页",
+  //   },
+  //   children: [
+  //     {
+  //       name: "system",
+  //       path: "/system",
+  //       component: () => import("@/layout/PageLayout"),
+  //       meta:{
+  //         title:"系统",
+  //       },
+  //       // redirect: "/system/user",
+  //       children: [
+  //         {
+  //           name: "user",
+  //           path: "/system/user",
+  //           component: () => import("@/views/system/user/User.vue"),
+  //           meta:{
+  //             title:"用户管理",
+  //           },
+  //         }
+  //       ],
+  //     }
+  //   ],
+  // }
 ]
 const route = createRouter({
   history: createWebHistory(),
@@ -37,6 +46,8 @@ const route = createRouter({
 })
 
 route.beforeEach((to) => {
+console.log(route.getRoutes())
+
   Nprogress.start()
   const token = storageUtil.getStorageItem(UserEnum.Token)
   if (!token && to.name !== "login") {

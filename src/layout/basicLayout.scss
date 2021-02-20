@@ -7,4 +7,5 @@
 }
 .wu-layout-side {
   @include layout-width();
+  margin: 0 0 0 20px;
 }

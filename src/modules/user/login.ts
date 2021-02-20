@@ -6,6 +6,7 @@ import { getUserInfo, loginApi, logout } from "@/api/system/user/loginApi"
 import { useRouter } from "vue-router"
 import { storageUtil } from "@/utils"
 import { UserInfo } from "@/types/system/user"
+import { addRoutes } from "@/route/async-router"
 
 function captchaRef() {
   const captcha = import.meta.env.VITE_APP_CAPTCHA
@@ -18,13 +19,13 @@ function captchaRef() {
 
   return { captchaSrc, clickCaptcha, }
 }
-
+export const userInfo = ref({})
 export function loginReactive() {
   const visibleRef = ref(false)
 
   const login = reactive({
-    username: "",
-    password: "",
+    username: "admin",
+    password: "admin",
     captcha: "",
   })
 
@@ -62,7 +63,10 @@ export function loginReactive() {
       run(toRaw(login))
         .then((res) => {
           storageUtil.setStorageItem(UserEnum.Token, res.result.token)
-          router.push({ name: "/", })
+          getUserInfo().then((res )=>{
+            addRoutes(res.data.result.menuList)
+            router.push("/")
+          })
         })
         .catch(() => {
           clickCaptcha()
@@ -80,24 +84,27 @@ export function loginReactive() {
     validateInfos,
     captchaSrc,
     clickCaptcha,
+    userInfo,
   }
 }
 
 export const getUserInfoReactive: () => Ref<UserInfo> = () => {
-  const { data, } = useRequest<UserInfo>(getUserInfo, {
-    id: "",
-    name: "",
-    account: "",
-    password: "",
-    sex: "",
-    mobilePhone: "",
-    email: "",
-    idCard: "",
-    isAdmin: false,
-    status: "",
-    menuList: [],
-    permissionList: [],
-  })
-
+  const { data, } = useRequest<UserInfo>(
+    getUserInfo,
+    {
+      id: "",
+      name: "",
+      account: "",
+      password: "",
+      sex: "",
+      mobilePhone: "",
+      email: "",
+      idCard: "",
+      isAdmin: false,
+      status: "",
+      menuList: [],
+      permissionList: [],
+    }
+  )
   return data
 }
