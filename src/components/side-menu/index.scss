@@ -1,0 +1,19 @@
+.side-menu {
+  width: 290px;
+  height: 100%;
+  min-height: 100vh;
+
+  background: #001529;
+}
+.logo {
+  padding-top: 10px;
+  display: flex;
+  img {
+    margin: 5px 10px 0px 10px;
+    height: 32px;
+    width: 32px;
+  }
+  h1 {
+    color: #ffffff;
+  }
+}
